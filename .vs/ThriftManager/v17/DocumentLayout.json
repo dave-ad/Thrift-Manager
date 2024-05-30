@@ -1,0 +1,291 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.infrastructure\\context\\thriftappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|solutionrelative:thriftmanager.infrastructure\\context\\thriftappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\members\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\members\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\contributions\\sessionwallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\contributions\\sessionwallettransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.infrastructure\\_core\\mig.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|solutionrelative:thriftmanager.infrastructure\\_core\\mig.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\contributions\\sessionmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\contributions\\sessionmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\contributions\\contributionsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\contributions\\contributionsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.infrastructure\\config\\sessionwalletconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|solutionrelative:thriftmanager.infrastructure\\config\\sessionwalletconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\members\\memberwallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\members\\memberwallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.infrastructure\\config\\contributionsessionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|solutionrelative:thriftmanager.infrastructure\\config\\contributionsessionconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\contributions\\sessionwallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\contributions\\sessionwallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.infrastructure\\config\\groupconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C0A21CE-3F6F-4111-B988-8BF9D8B3798C}|ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj|solutionrelative:thriftmanager.infrastructure\\config\\groupconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|d:\\training_hub\\_asp\\thriftmanager\\thriftmanager.domain\\entities\\groups\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C1E6C6-5AC8-42CF-BA6A-8655DC50C7E4}|ThriftManager.Domain\\ThriftManager.Domain.csproj|solutionrelative:thriftmanager.domain\\entities\\groups\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20240528141132_migrate.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528141132_migrate.cs",
+              "ViewState": "AQIAANMAAAAAAAAAAAAQwMsAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T14:11:32.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ThriftAppDbContext.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Context\\ThriftAppDbContext.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Context\\ThriftAppDbContext.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Context\\ThriftAppDbContext.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Context\\ThriftAppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T14:10:47.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20240528134341_migrate.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528134341_migrate.cs",
+              "ViewState": "AQIAALsAAAAAAAAAAAAQwHsAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:43:41.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SessionMember.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionMember.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Contributions\\SessionMember.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionMember.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Contributions\\SessionMember.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwAcAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:41:24.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SessionWalletTransaction.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionWalletTransaction.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Contributions\\SessionWalletTransaction.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionWalletTransaction.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Contributions\\SessionWalletTransaction.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAowBEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:39:22.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "mig.txt",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\_Core\\mig.txt",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\_Core\\mig.txt",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\_Core\\mig.txt",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\_Core\\mig.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-28T13:26:11.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Member.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Members\\Member.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Members\\Member.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Members\\Member.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Members\\Member.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:37:40.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MemberWallet.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Members\\MemberWallet.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Members\\MemberWallet.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Members\\MemberWallet.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Members\\MemberWallet.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:37:22.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SessionWalletConfig.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\SessionWalletConfig.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Config\\SessionWalletConfig.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\SessionWalletConfig.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Config\\SessionWalletConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:35:25.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ContributionSession.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\ContributionSession.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Contributions\\ContributionSession.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\ContributionSession.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Contributions\\ContributionSession.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAxwA4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:27:56.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20240528133451_migrate.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Migrations\\ThriftMig\\20240528133451_migrate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:34:52.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SessionWallet.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionWallet.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Contributions\\SessionWallet.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Contributions\\SessionWallet.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Contributions\\SessionWallet.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA5wBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:30:48.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GroupConfig.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\GroupConfig.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Config\\GroupConfig.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\GroupConfig.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Config\\GroupConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:28:19.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ContributionSessionConfig.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\ContributionSessionConfig.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Infrastructure\\Config\\ContributionSessionConfig.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\Config\\ContributionSessionConfig.cs",
+              "RelativeToolTip": "ThriftManager.Infrastructure\\Config\\ContributionSessionConfig.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:28:13.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Group.cs",
+              "DocumentMoniker": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Groups\\Group.cs",
+              "RelativeDocumentMoniker": "ThriftManager.Domain\\Entities\\Groups\\Group.cs",
+              "ToolTip": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\Entities\\Groups\\Group.cs",
+              "RelativeToolTip": "ThriftManager.Domain\\Entities\\Groups\\Group.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA5wAcAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:27:40.489Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

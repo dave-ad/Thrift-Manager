@@ -1,0 +1,2 @@
+Add-Migration migrate -Context ThriftAppDbContext -o 'Migrations/ThriftMig'
+update-database -Context ThriftAppDbContext -verbose

@@ -1,0 +1,77 @@
+=> Member
+---------------
+- FirstName
+- LastName
+- Othernames
+- Gender
+- DateOfBirth
+- Occupation
+- Email
+- PassportPhoto
+- NIN
+- Status
+
+=> Contact
+------------
+- StreetNumber
+- StreetName
+- Area / City
+- LGA
+- State
+
+=> Wallet
+-----------------
+- MemberId
+- WalletNumber
+- AccountNumber
+- AccountName
+- BankId
+- BVN
+- Balance
+
+
+=>Group
+--------------
+- Name
+- Title
+- Contribution
+- Tenure
+- Period
+- Status
+
+
+=> Tenure
+-------------------
+- Title
+- GroupId
+- Period
+- NumberRounds
+- PeriodDueDate
+- TenureStartDate
+- TenureEndDate
+- AdminId
+- Status
+
+=> GroupMember
+-------------------
+- GroupId
+- MemberId
+- MemberSlot
+ 
+=> GroupWallet
+--------------------
+- GroupId
+- AccountNumber
+- AccountName
+- BankId
+- Balance
+ 
+=> GroupWalletTransaction
+--------------------
+- GroupWalletId
+- GroupId
+- TransactionRef
+- MemberId
+- Amount
+- Date
+- TransactionType

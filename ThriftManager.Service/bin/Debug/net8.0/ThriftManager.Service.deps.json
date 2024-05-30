@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ThriftManager.Service/1.0.0": {
+        "dependencies": {
+          "ThriftManager.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ThriftManager.Service.dll": {}
+        }
+      },
+      "ThriftManager.Domain/1.0.0": {
+        "dependencies": {
+          "ThriftManager.Utils": "1.0.0"
+        },
+        "runtime": {
+          "ThriftManager.Domain.dll": {}
+        }
+      },
+      "ThriftManager.Utils/1.0.0": {
+        "runtime": {
+          "ThriftManager.Utils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ThriftManager.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ThriftManager.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ThriftManager.Utils/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

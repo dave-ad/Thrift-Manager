@@ -1,0 +1,17 @@
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.csproj.AssemblyReference.cache
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.AssemblyInfoInputs.cache
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.AssemblyInfo.cs
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.csproj.CoreCompileInputs.cache
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Service.deps.json
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Service.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Service.pdb
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Domain.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Utils.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Domain.pdb
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Utils.pdb
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftMa.B9623DD4.Up2Date
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\refint\ThriftManager.Service.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.pdb
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ref\ThriftManager.Service.dll
