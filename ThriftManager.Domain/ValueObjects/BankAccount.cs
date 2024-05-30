@@ -18,8 +18,8 @@ public record BankAccount
     private BankAccount(string accountNo, string accountName, string bvn, int bankId)
     {
         BankId = bankId;
-        AccountName = accountNo;
-        AccountNo = accountName;
+        AccountName = accountName;
+        AccountNo = accountNo;
         BVN = bvn;
     }
 

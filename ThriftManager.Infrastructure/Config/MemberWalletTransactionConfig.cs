@@ -11,6 +11,6 @@ internal class MemberWalletTransactionConfig : IEntityTypeConfiguration<MemberWa
         builder.ToTable(nameof(MemberWalletTransaction));
         builder.HasKey(x => x.MemberWalletTransactionId);
 
-        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberWalletTransactionId), "wallettransaction_wallettransactionid_seq", "ThriftSchema");
+        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberWalletTransactionId), "wallettransaction_wallettransactionid_seq", ThriftAppDbContext.DEFAULT_SCHEMA);
     }
 }

@@ -6,40 +6,32 @@ public partial class Member : IAggregateRoot
 {
     private Member() { }
 
-    private Member(string lastName, string firstName, string otherNames,
-        Gender gender, DateOnly dateOfBirth, string email,
-        string mobileNumber, string nIN, string walletNumber, string accountNumber,
-        string accountName, string bvn, int bankId)
+    private Member(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
+        NIN nIN, string walletNumber, BankAccount account)
     {
-        Name = FullName.Create(lastName, firstName, otherNames);
+        Name = name;
         Gender = gender;
         DateOfBirth = dateOfBirth;
-        Email = Email.Create(email);
-        MobileNumber = MobileNo.Create(mobileNumber);
-        NIN = NIN.Create(nIN);
+        Email = email;
+        MobileNumber = mobileNumber;
+        NIN = nIN;
         Status = MemberStatus.Registered;
 
-        MemberWallet = new MemberWallet(MemberId, accountNumber,
-            walletNumber, accountName, bankId, bvn);
-
+        MemberWallet = new MemberWallet(MemberId, walletNumber, account);
         //MemberAddress = memberAddress;
     }
 
-    public static Member Create(string lastName, string firstName,
-        string otherNames, Gender gender, DateOnly dateOfBirth, string email,
-        string mobileNumber, string nIN, string walletNumber, string accountNumber,
-        string accountName, string bvn, int bankId)
+    public static Member Create(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
+        NIN nIN, string walletNumber, BankAccount account)
     {
-        return new Member(lastName, firstName, otherNames, gender,
-            dateOfBirth, email, mobileNumber, nIN, walletNumber,
-            accountNumber, accountName, bvn, bankId);
+        return new Member(name, gender, dateOfBirth, email, mobileNumber, nIN, walletNumber, account);
     }
 
-    public void Update(string lastName, string firstName, string otherNames, string mobileNumber, Gender gender)
+    public void Update(FullName name, MobileNo mobileNumber, Gender gender)
     {
-        Name = FullName.Create(lastName, firstName, otherNames);
+        Name = name;
         Gender = gender;
-        MobileNumber = MobileNo.Create(mobileNumber); ;
+        MobileNumber = mobileNumber; ;
     }
 
     public void CreditWallet(decimal amount)

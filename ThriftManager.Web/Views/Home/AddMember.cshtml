@@ -1,0 +1,7 @@
+﻿@model ServiceResponse<MemberIdResponse>
+@{
+    var resp = Model.IsSuccessful ? "Member Created Successfully" : Model.Error;
+
+}
+
+<h5>@resp</h5>

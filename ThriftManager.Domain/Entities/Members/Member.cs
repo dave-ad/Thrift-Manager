@@ -14,5 +14,5 @@ public partial class Member : Entity
     public MemberStatus Status { get; private set; }
 
     public virtual MemberWallet MemberWallet { get; private set; } = default!;
-    public virtual MemberAddress MemberAddress { get; private set; } = default!;
+    //public virtual MemberAddress MemberAddress { get; private set; } = default!;
 }

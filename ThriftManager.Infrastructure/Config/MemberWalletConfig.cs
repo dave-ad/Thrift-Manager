@@ -9,7 +9,7 @@ internal class MemberWalletConfig : IEntityTypeConfiguration<MemberWallet>
     public void Configure(EntityTypeBuilder<MemberWallet> builder)
     {
         builder.ToTable(nameof(MemberWallet));
-        builder.HasKey(x => x.MemberId);
+        builder.HasKey(x => x.MemberWalletId);
 
         builder.OwnsOne(x => x.Account, c =>
         {
@@ -20,5 +20,7 @@ internal class MemberWalletConfig : IEntityTypeConfiguration<MemberWallet>
         });
 
         builder.HasMany(x => x.MemberWalletTransactions).WithOne(x => x.MemberWallet);
+
+        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberId), "memberwallet_memberwalletid_seq", ThriftAppDbContext.DEFAULT_SCHEMA);
     }
 }

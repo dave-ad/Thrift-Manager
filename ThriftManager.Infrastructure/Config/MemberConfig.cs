@@ -37,8 +37,8 @@ internal class MemberConfig : IEntityTypeConfiguration<Member>
         });
 
 
-        builder.HasOne(x => x.MemberWallet).WithOne();
+        builder.HasOne(x => x.MemberWallet).WithOne(x => x.Member);
 
-        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberId), "member_memberid_seq", "ThriftSchema");
+        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberId), "member_memberid_seq", ThriftAppDbContext.DEFAULT_SCHEMA);
     }
 }

@@ -5,15 +5,31 @@ namespace ThriftManager.Infrastructure;
 
 internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
 {
-    private string _schema = "ThriftSchema";
+    internal const string DEFAULT_SCHEMA = "ThriftSchema";
+    private string? _conString = "";
+
+    //IConfiguration configuration
+    public ThriftAppDbContext()
+    {
+        _conString = "PORT=5433;HOST=localhost;DATABASE=ThriftAppDB;USER ID=postgres;PASSWORD=";
+        //_conString = configuration.GetConnectionString("PGLocalTestBed");
+        //if (!string.IsNullOrEmpty(_conString) && _conString.Length > 5)
+        //{
+        //    _conString = _conString.Replace("{{DBName}}", "ThriftAppDB");
+        //}
+        //else
+        //{
+        //    _conString = "PORT=5433;HOST=localhost;DATABASE=ThriftAppDB;USER ID=postgres;PASSWORD=s3alt3am";
+        //}
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
      => optionsBuilder
-     .UseNpgsql("PORT=0000;HOST=0.0.0.0;DATABASE=ThriftAppDB;USER ID=postgres;PASSWORD=;PersistSecurityInfo=true")
+     .UseNpgsql(_conString)
      .EnableSensitiveDataLogging();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema(_schema);
+        modelBuilder.HasDefaultSchema(DEFAULT_SCHEMA);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ThriftAppDbContext).Assembly);
     }
 
@@ -21,9 +37,9 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
     public DbSet<MemberWallet> MemberWallets { get; set; }
     public DbSet<MemberWalletTransaction> MemberWalletTransactions { get; set; }
     public DbSet<Group> Groups { get; set; }
-    public DbSet<ContributionSession> ContributionSessions { get; set; }
-    public DbSet<SessionMember> SessionMembers { get; set; }
-    public DbSet<SessionWallet> SessionWallets { get; set; }
-    public DbSet<SessionWalletTransaction> SessionWalletTransactions { get; set; }
+    public DbSet<Contribution> Contributions { get; set; }
+    public DbSet<ContributingMember> ContributingMembers { get; set; }
+    public DbSet<ContributionWallet> ContributionWallets { get; set; }
+    public DbSet<ContributionWalletTransaction> ContributionWalletTransactions { get; set; }
 
 }

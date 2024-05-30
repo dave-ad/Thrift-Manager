@@ -2,6 +2,7 @@
 
 public enum Period
 {
+    Unknown = 0,
     Daily = 1,
     Weekly,
     Fortnightly,

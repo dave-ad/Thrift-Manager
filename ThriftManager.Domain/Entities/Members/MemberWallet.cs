@@ -1,26 +1,25 @@
-﻿using ThriftManager.Domain.ValueObjects;
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public class MemberWallet
 {
+    public int MemberWalletId { get; private set; }
     public int MemberId { get; private set; }
     public string WalletNumber { get; private set; } = default!;
     public BankAccount Account { get; private set; } = BankAccount.Default();
     public decimal Balance { get; private set; }
+    public virtual Member Member { get; private set; } = default!;
     public IReadOnlyCollection<MemberWalletTransaction> MemberWalletTransactions => _memberWalletTransactions;
 
     private HashSet<MemberWalletTransaction> _memberWalletTransactions = new HashSet<MemberWalletTransaction>();
     internal MemberWallet() { }
-    internal MemberWallet(int memberId, string accountNumber, string walletNumber,
-        string accountName, int bankId, string bvn)
+    internal MemberWallet(int memberId, string walletNumber, BankAccount account)
     {
         MemberId = memberId;
         WalletNumber = walletNumber;
-        Account = BankAccount.Create(accountNumber, accountName, bvn, bankId);
+        Account = account;
         Balance = 0;
         _memberWalletTransactions.Add(new
-            MemberWalletTransaction(memberId, TransactionType.Init, 0, DateTime.UtcNow, TransStatus.Success
+            MemberWalletTransaction(MemberWalletId, memberId, TransactionType.Init, 0, DateTime.UtcNow, TransStatus.Success
         ));
     }
 
@@ -32,7 +31,7 @@ public class MemberWallet
         Balance += amount;
 
         _memberWalletTransactions.Add(new
-            MemberWalletTransaction(MemberId, TransactionType.Credit, amount, DateTime.UtcNow, TransStatus.Success
+            MemberWalletTransaction(MemberWalletId, MemberId, TransactionType.Credit, amount, DateTime.UtcNow, TransStatus.Success
         ));
     }
 
@@ -44,7 +43,7 @@ public class MemberWallet
         Balance -= amount;
 
         _memberWalletTransactions.Add(new
-            MemberWalletTransaction(MemberId, TransactionType.Debit, -amount, DateTime.UtcNow, TransStatus.Success
+            MemberWalletTransaction(MemberWalletId, MemberId, TransactionType.Debit, -amount, DateTime.UtcNow, TransStatus.Success
         ));
     }
 

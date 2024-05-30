@@ -15,3 +15,7 @@ D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\Thrift
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\refint\ThriftManager.Service.dll
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ThriftManager.Service.pdb
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\obj\Debug\net8.0\ref\ThriftManager.Service.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.DTO.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Infrastructure.dll
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.DTO.pdb
+D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Service\bin\Debug\net8.0\ThriftManager.Infrastructure.pdb

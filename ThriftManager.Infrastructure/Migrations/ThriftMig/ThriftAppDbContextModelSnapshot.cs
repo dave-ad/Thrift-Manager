@@ -26,16 +26,19 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
             modelBuilder.HasSequence("contributionsession_contributionsessionid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
+            modelBuilder.HasSequence("contributionwallet_contributionwalletid_seq", "ThriftSchema")
+                .IncrementsBy(10);
+
             modelBuilder.HasSequence("group_groupid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
             modelBuilder.HasSequence("member_memberid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
-            modelBuilder.HasSequence("sessionmember_sessionmemberid_seq", "ThriftSchema")
+            modelBuilder.HasSequence("memberwallet_memberwalletid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
-            modelBuilder.HasSequence("SessionWallet_SessionWalletid_seq", "ThriftSchema")
+            modelBuilder.HasSequence("sessionmember_sessionmemberid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
             modelBuilder.HasSequence("sessionwallettransaction_sessionwallettransactionid_seq", "ThriftSchema")
@@ -44,70 +47,143 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
             modelBuilder.HasSequence("wallettransaction_wallettransactionid_seq", "ThriftSchema")
                 .IncrementsBy(10);
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionSession", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributingMember", b =>
                 {
-                    b.Property<long>("ContributionSessionId")
+                    b.Property<long>("ContributingMemberId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("ContributionSessionId"), "contributionsession_contributionsessionid_seq", "ThriftSchema");
+                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("ContributingMemberId"), "sessionmember_sessionmemberid_seq", "ThriftSchema");
+
+                    b.Property<long>("ContributionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SlotPosition")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ContributingMemberId");
+
+                    b.HasIndex("ContributionId");
+
+                    b.ToTable("ContributingMember", "ThriftSchema");
+                });
+
+            modelBuilder.Entity("ThriftManager.Domain.Entities.Contribution", b =>
+                {
+                    b.Property<long>("ContributionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("ContributionId"), "contributionsession_contributionsessionid_seq", "ThriftSchema");
 
                     b.Property<int>("AdminId")
                         .HasColumnType("integer");
 
-                    b.Property<decimal>("ContributionAmount")
+                    b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("DueDay")
+                    b.Property<int>("ContributionWalletId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("GroupId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Period")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Slots")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Tenure")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("ContributionSessionId");
+                    b.HasKey("ContributionId");
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("ContributionSession", "ThriftSchema");
+                    b.ToTable("Contribution", "ThriftSchema");
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.Country", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionWallet", b =>
                 {
-                    b.Property<int>("CountryId")
+                    b.Property<long>("ContributionWalletId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("ContributionWalletId"), "contributionwallet_contributionwalletid_seq", "ThriftSchema");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
+
+                    b.Property<long>("ContributionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("GroupId")
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CountryId"));
-
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("CountryId");
+                    b.Property<string>("WalletNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.ToTable("Country", "ThriftSchema");
+                    b.HasKey("ContributionWalletId");
+
+                    b.HasIndex("ContributionId")
+                        .IsUnique();
+
+                    b.ToTable("ContributionWallet", "ThriftSchema");
+                });
+
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionWalletTransaction", b =>
+                {
+                    b.Property<long>("ContributionWalletTransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("ContributionWalletTransactionId"), "sessionwallettransaction_sessionwallettransactionid_seq", "ThriftSchema");
+
+                    b.Property<long>("ContributionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ContributionWalletId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("TransactionAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("TransactionType")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ContributionWalletTransactionId");
+
+                    b.HasIndex("ContributionWalletId");
+
+                    b.ToTable("ContributionWalletTransaction", "ThriftSchema");
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.Group", b =>
@@ -118,7 +194,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
 
                     NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<int>("GroupId"), "group_groupid_seq", "ThriftSchema");
 
-                    b.Property<decimal>("ContributionAmount")
+                    b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
                     b.Property<int>("CreatedBy")
@@ -131,16 +207,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("Period")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Slots")
-                        .HasColumnType("integer");
-
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Tenure")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
@@ -153,28 +220,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     b.HasKey("GroupId");
 
                     b.ToTable("Group", "ThriftSchema");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.LocalGovtArea", b =>
-                {
-                    b.Property<int>("LocalGovtAreaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LocalGovtAreaId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("LocalGovtAreaId");
-
-                    b.HasIndex("StateId");
-
-                    b.ToTable("LocalGovtArea", "ThriftSchema");
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.Member", b =>
@@ -208,61 +253,31 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     b.ToTable("Member", "ThriftSchema");
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.MemberAddress", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.MemberWallet", b =>
                 {
-                    b.Property<int>("MemberAddressId")
+                    b.Property<int>("MemberWalletId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MemberAddressId"));
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("LocalGovtAreaId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("StreetName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("StreetNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("MemberAddressId");
-
-                    b.HasIndex("LocalGovtAreaId");
-
-                    b.HasIndex("MemberId")
-                        .IsUnique();
-
-                    b.ToTable("MemberAddress", "ThriftSchema");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.MemberWallet", b =>
-                {
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MemberWalletId"));
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("numeric");
+
+                    b.Property<int>("MemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<int>("MemberId"), "memberwallet_memberwalletid_seq", "ThriftSchema");
 
                     b.Property<string>("WalletNumber")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("MemberId");
+                    b.HasKey("MemberWalletId");
+
+                    b.HasIndex("MemberId")
+                        .IsUnique();
 
                     b.ToTable("MemberWallet", "ThriftSchema");
                 });
@@ -278,7 +293,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     b.Property<int>("MemberId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MemberWalletMemberId")
+                    b.Property<int>("MemberWalletId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
@@ -295,161 +310,142 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
 
                     b.HasKey("MemberWalletTransactionId");
 
-                    b.HasIndex("MemberWalletMemberId");
+                    b.HasIndex("MemberWalletId");
 
                     b.ToTable("MemberWalletTransaction", "ThriftSchema");
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionMember", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributingMember", b =>
                 {
-                    b.Property<int>("SessionMemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                    b.HasOne("ThriftManager.Domain.Entities.Contribution", "Contribution")
+                        .WithMany("ContributingMembers")
+                        .HasForeignKey("ContributionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<int>("SessionMemberId"), "sessionmember_sessionmemberid_seq", "ThriftSchema");
-
-                    b.Property<long>("ContributionSessionId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SlotPosition")
-                        .HasColumnType("integer");
-
-                    b.HasKey("SessionMemberId");
-
-                    b.HasIndex("ContributionSessionId");
-
-                    b.ToTable("SessionMember", "ThriftSchema");
+                    b.Navigation("Contribution");
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionWallet", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.Contribution", b =>
                 {
-                    b.Property<long>("SessionWalletId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("SessionWalletId"), "SessionWallet_SessionWalletid_seq", "ThriftSchema");
-
-                    b.Property<string>("AccountName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("BankId")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("ContributionSessionId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("GroupId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("WalletNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("SessionWalletId");
-
-                    b.HasIndex("ContributionSessionId")
-                        .IsUnique();
-
-                    b.ToTable("SessionWallet", "ThriftSchema");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionWalletTransaction", b =>
-                {
-                    b.Property<long>("SessionWalletTransactionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseHiLo(b.Property<long>("SessionWalletTransactionId"), "sessionwallettransaction_sessionwallettransactionid_seq", "ThriftSchema");
-
-                    b.Property<long>("ContributionSessionId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("GroupId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("SessionWalletId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("TransactionAmount")
-                        .HasColumnType("numeric");
-
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("integer");
-
-                    b.HasKey("SessionWalletTransactionId");
-
-                    b.HasIndex("SessionWalletId");
-
-                    b.ToTable("SessionWalletTransaction", "ThriftSchema");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.State", b =>
-                {
-                    b.Property<int>("StateId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("StateId"));
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("StateId");
-
-                    b.HasIndex("CountryId");
-
-                    b.ToTable("State", "ThriftSchema");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionSession", b =>
-                {
-                    b.HasOne("ThriftManager.Domain.Entities.Group", null)
-                        .WithMany("ContributionSessions")
+                    b.HasOne("ThriftManager.Domain.Entities.Group", "Group")
+                        .WithMany("Contributions")
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("ThriftManager.Domain.ValueObjects.ContributionTimeline", "Timeline", b1 =>
+                        {
+                            b1.Property<long>("ContributionId")
+                                .HasColumnType("bigint");
+
+                            b1.Property<int>("DueDay")
+                                .HasMaxLength(11)
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Period")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Slots")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("ContributionId");
+
+                            b1.ToTable("Contribution", "ThriftSchema");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ContributionId");
+                        });
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Timeline")
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.LocalGovtArea", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionWallet", b =>
                 {
-                    b.HasOne("ThriftManager.Domain.Entities.State", "State")
-                        .WithMany()
-                        .HasForeignKey("StateId")
+                    b.HasOne("ThriftManager.Domain.Entities.Contribution", "Contribution")
+                        .WithOne("ContributionWallet")
+                        .HasForeignKey("ThriftManager.Domain.Entities.ContributionWallet", "ContributionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("State");
+                    b.OwnsOne("ThriftManager.Domain.ValueObjects.BankAccount", "Account", b1 =>
+                        {
+                            b1.Property<long>("ContributionWalletId")
+                                .HasColumnType("bigint");
+
+                            b1.Property<string>("AccountName")
+                                .IsRequired()
+                                .HasMaxLength(80)
+                                .HasColumnType("character varying(80)");
+
+                            b1.Property<string>("AccountNo")
+                                .IsRequired()
+                                .HasMaxLength(10)
+                                .HasColumnType("character varying(10)");
+
+                            b1.Property<string>("BVN")
+                                .IsRequired()
+                                .HasMaxLength(11)
+                                .HasColumnType("character varying(11)");
+
+                            b1.Property<int>("BankId")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("ContributionWalletId");
+
+                            b1.ToTable("ContributionWallet", "ThriftSchema");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ContributionWalletId");
+                        });
+
+                    b.Navigation("Account")
+                        .IsRequired();
+
+                    b.Navigation("Contribution");
+                });
+
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionWalletTransaction", b =>
+                {
+                    b.HasOne("ThriftManager.Domain.Entities.ContributionWallet", "ContributionWallet")
+                        .WithMany("WalletTransactions")
+                        .HasForeignKey("ContributionWalletId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContributionWallet");
+                });
+
+            modelBuilder.Entity("ThriftManager.Domain.Entities.Group", b =>
+                {
+                    b.OwnsOne("ThriftManager.Domain.ValueObjects.ContributionTimeline", "Timeline", b1 =>
+                        {
+                            b1.Property<int>("GroupId")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("DueDay")
+                                .HasMaxLength(11)
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Period")
+                                .HasColumnType("integer");
+
+                            b1.Property<int>("Slots")
+                                .HasColumnType("integer");
+
+                            b1.HasKey("GroupId");
+
+                            b1.ToTable("Group", "ThriftSchema");
+
+                            b1.WithOwner()
+                                .HasForeignKey("GroupId");
+                        });
+
+                    b.Navigation("Timeline")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.Member", b =>
@@ -558,28 +554,9 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.MemberAddress", b =>
-                {
-                    b.HasOne("ThriftManager.Domain.Entities.LocalGovtArea", "LocalGovtArea")
-                        .WithMany()
-                        .HasForeignKey("LocalGovtAreaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ThriftManager.Domain.Entities.Member", "Member")
-                        .WithOne("MemberAddress")
-                        .HasForeignKey("ThriftManager.Domain.Entities.MemberAddress", "MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LocalGovtArea");
-
-                    b.Navigation("Member");
-                });
-
             modelBuilder.Entity("ThriftManager.Domain.Entities.MemberWallet", b =>
                 {
-                    b.HasOne("ThriftManager.Domain.Entities.Member", null)
+                    b.HasOne("ThriftManager.Domain.Entities.Member", "Member")
                         .WithOne("MemberWallet")
                         .HasForeignKey("ThriftManager.Domain.Entities.MemberWallet", "MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -587,7 +564,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
 
                     b.OwnsOne("ThriftManager.Domain.ValueObjects.BankAccount", "Account", b1 =>
                         {
-                            b1.Property<int>("MemberWalletMemberId")
+                            b1.Property<int>("MemberWalletId")
                                 .HasColumnType("integer");
 
                             b1.Property<string>("AccountName")
@@ -608,85 +585,51 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                             b1.Property<int>("BankId")
                                 .HasColumnType("integer");
 
-                            b1.HasKey("MemberWalletMemberId");
+                            b1.HasKey("MemberWalletId");
 
                             b1.ToTable("MemberWallet", "ThriftSchema");
 
                             b1.WithOwner()
-                                .HasForeignKey("MemberWalletMemberId");
+                                .HasForeignKey("MemberWalletId");
                         });
 
                     b.Navigation("Account")
                         .IsRequired();
+
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.MemberWalletTransaction", b =>
                 {
                     b.HasOne("ThriftManager.Domain.Entities.MemberWallet", "MemberWallet")
                         .WithMany("MemberWalletTransactions")
-                        .HasForeignKey("MemberWalletMemberId")
+                        .HasForeignKey("MemberWalletId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MemberWallet");
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionMember", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.Contribution", b =>
                 {
-                    b.HasOne("ThriftManager.Domain.Entities.ContributionSession", null)
-                        .WithMany("SessionMembers")
-                        .HasForeignKey("ContributionSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("ContributingMembers");
+
+                    b.Navigation("ContributionWallet")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionWallet", b =>
+            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionWallet", b =>
                 {
-                    b.HasOne("ThriftManager.Domain.Entities.ContributionSession", null)
-                        .WithOne("SessionWallet")
-                        .HasForeignKey("ThriftManager.Domain.Entities.SessionWallet", "ContributionSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionWalletTransaction", b =>
-                {
-                    b.HasOne("ThriftManager.Domain.Entities.SessionWallet", null)
-                        .WithMany("WalletTransactions")
-                        .HasForeignKey("SessionWalletId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.State", b =>
-                {
-                    b.HasOne("ThriftManager.Domain.Entities.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.ContributionSession", b =>
-                {
-                    b.Navigation("SessionMembers");
-
-                    b.Navigation("SessionWallet")
-                        .IsRequired();
+                    b.Navigation("WalletTransactions");
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.Group", b =>
                 {
-                    b.Navigation("ContributionSessions");
+                    b.Navigation("Contributions");
                 });
 
             modelBuilder.Entity("ThriftManager.Domain.Entities.Member", b =>
                 {
-                    b.Navigation("MemberAddress")
-                        .IsRequired();
-
                     b.Navigation("MemberWallet")
                         .IsRequired();
                 });
@@ -694,11 +637,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
             modelBuilder.Entity("ThriftManager.Domain.Entities.MemberWallet", b =>
                 {
                     b.Navigation("MemberWalletTransactions");
-                });
-
-            modelBuilder.Entity("ThriftManager.Domain.Entities.SessionWallet", b =>
-                {
-                    b.Navigation("WalletTransactions");
                 });
 #pragma warning restore 612, 618
         }

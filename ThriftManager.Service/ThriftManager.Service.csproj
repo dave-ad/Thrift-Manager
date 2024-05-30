@@ -1,13 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ThriftManager.Domain\ThriftManager.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ThriftManager.Domain\ThriftManager.Domain.csproj" />
+		<ProjectReference Include="..\ThriftManager.DTO\ThriftManager.DTO.csproj" />
+		<ProjectReference Include="..\ThriftManager.Infrastructure\ThriftManager.Infrastructure.csproj" />
+		<ProjectReference Include="..\ThriftManager.Utils\ThriftManager.Utils.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="ContributionServices\" />
+	</ItemGroup>
 
 </Project>
