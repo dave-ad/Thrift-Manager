@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj": {}
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj": {}
   },
   "projects": {
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
         "projectName": "ThriftManager.Domain",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,17 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
               }
             }
           }
@@ -45,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -71,25 +59,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj",
         "projectName": "ThriftManager.DTO",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,17 +81,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
               }
             }
           }
@@ -116,11 +97,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -142,25 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj",
         "projectName": "ThriftManager.Infrastructure",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -168,17 +140,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
               }
             }
           }
@@ -187,11 +156,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -275,25 +239,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
         "projectName": "ThriftManager.Service",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -301,26 +261,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
               },
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
               },
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj"
               },
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
               }
             }
           }
@@ -329,11 +286,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -355,25 +307,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj",
         "projectName": "ThriftManager.Utils",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -381,10 +329,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -396,11 +341,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -422,25 +362,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj": {
+    "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
+        "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
         "projectName": "ThriftManager.Web",
-        "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Web\\obj\\",
+        "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -448,23 +384,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dev-nuget.xplugws.com/nuget": {},
-          "https://nuget.xplugws.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
               },
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj"
               },
-              "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
-                "projectPath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
+              "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+                "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
               }
             }
           }
@@ -473,16 +406,21 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -502,7 +440,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

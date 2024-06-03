@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lyRr+UMBxJ+lSKTsZeFlNvvIHTmNKUoEoMQ7+CafpvVB3zIu+o+ffgqiHN+uhBRENDlUxWY4BujwPtqP9lzpGg==",
+  "dgSpecHash": "X6vO53mQHwbhQ4Laujektn3k/X18z3cSFeIg9h5xuvTdN+6Xlx4r+aCXMNGULwM05CaAc/YWJpUr3Z+gQK6jGg==",
   "success": true,
-  "projectFilePath": "D:\\TRAINING_HUB\\_ASP\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
+  "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

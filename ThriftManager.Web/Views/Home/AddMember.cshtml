@@ -1,7 +1,97 @@
 ﻿@model ServiceResponse<MemberIdResponse>
+@* @model CreateMemberRequest *@
+
 @{
     var resp = Model.IsSuccessful ? "Member Created Successfully" : Model.Error;
 
 }
 
 <h5>@resp</h5>
+
+@* @{
+    ViewData["Title"] = "Add Member";
+}
+
+<h1>Add Member</h1> *@
+
+@* <h2>Add member</h2></h2>*@
+@* @if (Model != null && Model.IsSuccessful)
+{
+    <p>Member added successfully!</p>
+}
+else if (Model != null && !Model.IsSuccessful)
+{
+    <p>Error adding member: @Model.Error</p>
+} *@
+@* 
+<form asp-action="AddMember" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName">First Name:</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Last Name:</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OtherNames">Other Names:</label>
+        <input asp-for="OtherNames" class="form-control" />
+        <span asp-validation-for="OtherNames" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateOfBirth">Date of Birth:</label>
+        <input asp-for="DateOfBirth" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender">Gender:</label>
+        <select asp-for="Gender" class="form-control">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MobileNumber">Mobile Number:</label>
+        <input asp-for="MobileNumber" class="form-control" />
+        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NIN">NIN:</label>
+        <input asp-for="NIN" class="form-control" />
+        <span asp-validation-for="NIN" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.AccountName">Account Name:</label>
+        <input asp-for="Account.AccountName" class="form-control" />
+        <span asp-validation-for="Account.AccountName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.AccountNumber">Account Number:</label>
+        <input asp-for="Account.AccountNumber" class="form-control" />
+        <span asp-validation-for="Account.AccountNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.BankId">Bank ID:</label>
+        <input asp-for="Account.BankId" class="form-control" />
+        <span asp-validation-for="Account.BankId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.BVN">BVN:</label>
+        <input asp-for="Account.BVN" class="form-control" />
+        <span asp-validation-for="Account.BVN" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+} *@

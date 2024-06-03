@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace ThriftManager.Infrastructure;
+﻿namespace ThriftManager.Infrastructure;
 
 public static class DIRegister
 {

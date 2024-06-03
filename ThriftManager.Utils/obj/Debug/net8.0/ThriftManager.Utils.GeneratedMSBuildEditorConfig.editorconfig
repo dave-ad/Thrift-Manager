@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ThriftManager.Utils
-build_property.ProjectDir = D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Utils\
+build_property.ProjectDir = C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

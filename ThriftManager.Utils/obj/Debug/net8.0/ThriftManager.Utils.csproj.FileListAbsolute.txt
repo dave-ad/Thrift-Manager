@@ -9,3 +9,15 @@ D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftMa
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\refint\ThriftManager.Utils.dll
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.pdb
 D:\TRAINING_HUB\_ASP\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ref\ThriftManager.Utils.dll
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\bin\Debug\net8.0\ThriftManager.Utils.deps.json
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\bin\Debug\net8.0\ThriftManager.Utils.dll
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\bin\Debug\net8.0\ThriftManager.Utils.pdb
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.AssemblyInfo.cs
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.sourcelink.json
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.dll
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\refint\ThriftManager.Utils.dll
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ThriftManager.Utils.pdb
+C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Utils\obj\Debug\net8.0\ref\ThriftManager.Utils.dll

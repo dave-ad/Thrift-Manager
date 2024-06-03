@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ThriftManager.Domain.Entities;
-
-namespace ThriftManager.Infrastructure;
+﻿namespace ThriftManager.Infrastructure;
 
 public interface IThriftAppDbContext
 {

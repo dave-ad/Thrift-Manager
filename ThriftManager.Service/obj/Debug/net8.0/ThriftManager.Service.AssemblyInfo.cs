@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThriftManager.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60be4df9dc9c073c1edbbe83a63f164ef3d3aefe")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThriftManager.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThriftManager.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

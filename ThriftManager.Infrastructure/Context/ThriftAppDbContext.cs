@@ -1,36 +1,63 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ThriftManager.Domain.Entities;
+﻿using System;
 
 namespace ThriftManager.Infrastructure;
 
 internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
 {
     internal const string DEFAULT_SCHEMA = "ThriftSchema";
-    private string? _conString = "";
+    private string? DevConnection = "";
 
-    //IConfiguration configuration
     public ThriftAppDbContext()
     {
-        _conString = "PORT=5433;HOST=localhost;DATABASE=ThriftAppDB;USER ID=postgres;PASSWORD=";
-        //_conString = configuration.GetConnectionString("PGLocalTestBed");
-        //if (!string.IsNullOrEmpty(_conString) && _conString.Length > 5)
-        //{
-        //    _conString = _conString.Replace("{{DBName}}", "ThriftAppDB");
-        //}
-        //else
-        //{
-        //    _conString = "PORT=5433;HOST=localhost;DATABASE=ThriftAppDB;USER ID=postgres;PASSWORD=s3alt3am";
-        //}
+        DevConnection = "Server=David\\MSSQLSERVER2022;Database=ThriftAppDb;" +
+           "initial catalog=ThriftAppDb;Trusted_Connection=True;MultipleActiveResultSets=true;integrated security=True;TrustServerCertificate=True;";
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-     => optionsBuilder
-     .UseNpgsql(_conString)
-     .EnableSensitiveDataLogging();
+        => optionsBuilder
+        .UseSqlServer(DevConnection)
+        .EnableSensitiveDataLogging();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema(DEFAULT_SCHEMA);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ThriftAppDbContext).Assembly);
+
+        // Specify column types for decimal properties
+        modelBuilder.Entity<Contribution>()
+            .Property(c => c.Amount)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<ContributionSession>()
+            .Property(c => c.ContributionAmount)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<ContributionWallet>()
+            .Property(c => c.Balance)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<ContributionWalletTransaction>()
+            .Property(c => c.TransactionAmount)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<Group>()
+            .Property(g => g.Amount)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<MemberWallet>()
+            .Property(mw => mw.Balance)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<MemberWalletTransaction>()
+            .Property(mwt => mwt.TransactionAmount)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<SessionWallet>()
+            .Property(sw => sw.Balance)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<SessionWalletTransaction>()
+            .Property(swt => swt.TransactionAmount)
+            .HasColumnType("decimal(18,2)");
     }
 
     public DbSet<Member> Members { get; set; }
