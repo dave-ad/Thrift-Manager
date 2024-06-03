@@ -1,6 +1,4 @@
-﻿using ThriftManager.DTO.Common;
-
-namespace ThriftManager.DTO.Responses;
+﻿namespace ThriftManager.DTO.Responses;
 
 public class MemberIdResponse : IServiceResponse
 {
