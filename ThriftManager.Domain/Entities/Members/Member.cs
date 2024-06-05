@@ -1,6 +1,4 @@
-﻿using ThriftManager.Domain.ValueObjects;
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public partial class Member : Entity
 {

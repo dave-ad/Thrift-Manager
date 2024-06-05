@@ -1,11 +1,8 @@
-﻿using ThriftManager.Domain.ValueObjects;
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public partial class Member : IAggregateRoot
 {
     private Member() { }
-
     private Member(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
         NIN nIN, string walletNumber, BankAccount account)
     {

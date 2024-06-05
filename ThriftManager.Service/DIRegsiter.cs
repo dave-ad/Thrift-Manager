@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using ThriftManager.Service.MemberServices;
-
-namespace ThriftManager.Service;
+﻿namespace ThriftManager.Service;
 
 public static class DIRegsiter
 {
@@ -9,6 +6,7 @@ public static class DIRegsiter
     {
         services.AddInfrastructure();
         services.AddScoped<IMemberService, MemberService>();
+        services.AddScoped<IGroupService, GroupService>();
         return services;
     }
 }

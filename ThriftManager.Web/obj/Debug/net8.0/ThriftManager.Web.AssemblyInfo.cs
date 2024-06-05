@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThriftManager.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60be4df9dc9c073c1edbbe83a63f164ef3d3aefe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f22c64e76d7fc7ced2be857c47a7ca67ba224dc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThriftManager.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThriftManager.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

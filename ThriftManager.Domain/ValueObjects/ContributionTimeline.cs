@@ -23,6 +23,7 @@ public record ContributionTimeline
         Slots = slots;
     }
     public static ContributionTimeline Default() => new();
+
     public static ContributionTimeline Create(int slots, Period period, int tenure, int dueDay) =>
         new(slots, period, tenure, dueDay);
 }

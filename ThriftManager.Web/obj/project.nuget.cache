@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "62J1t7dA9TlARXq40ivR2sNPPjOECfk67nj1q2V96V9YacuYrjGlhDzV7JXHEnf5m26Pl561juaQZJ54XZGRVg==",
+  "dgSpecHash": "zaxmD+C2UBx9RrSzSI0/KRov1Pxd37fe69ssre2l3ECiElVUuChD+wEUnbjI+1Oz8MKYAzJAyLG9GUV/zBH7lw==",
   "success": true,
   "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
   "expectedPackageFiles": [
@@ -89,11 +89,13 @@
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.5\\microsoft.entityframeworkcore.8.0.5.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.5\\microsoft.entityframeworkcore.abstractions.8.0.5.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.5\\microsoft.entityframeworkcore.analyzers.8.0.5.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.4\\microsoft.entityframeworkcore.design.8.0.4.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.5\\microsoft.entityframeworkcore.relational.8.0.5.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.relational.design\\1.1.0\\microsoft.entityframeworkcore.relational.design.1.1.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\8.0.5\\microsoft.entityframeworkcore.sqlite.8.0.5.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\8.0.5\\microsoft.entityframeworkcore.sqlite.core.8.0.5.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.5\\microsoft.entityframeworkcore.sqlserver.8.0.5.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.4\\microsoft.entityframeworkcore.tools.8.0.4.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

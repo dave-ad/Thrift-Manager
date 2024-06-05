@@ -19,21 +19,21 @@ public class HomeController : Controller
     {
         var account = new MemberBankAccount
         {
-            AccountName = "James Joseph",
-            AccountNumber = "1234567801",
-            BankId = 1,
-            BVN = "55563214598"
+            AccountName = "Jack Doe",
+            AccountNumber = "1834267801",
+            BankId = 3,
+            BVN = "55363214398"
         };
         var newMember = new CreateMemberRequest
         {
-            FirstName = "Somebody",
-            LastName = "Joseph",
-            OtherNames = "James",
-            Email = "somebody@yahoo.com",
-            DateOfBirth = new DateOnly(1990, 02, 02),
-            Gender = Gender.Male,
-            MobileNumber = "08056423145",
-            NIN = "0213653241",
+            FirstName = "Jane",
+            LastName = "Doe",
+            OtherNames = "Jack",
+            Email = "janedoe@email.com",
+            DateOfBirth = new DateOnly(2000, 12, 05),
+            Gender = Gender.Female,
+            MobileNumber = "08012345836",
+            NIN = "9233938251",
             Account = account
         };
 

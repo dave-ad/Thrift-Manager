@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿
+using Microsoft.EntityFrameworkCore;
 
 namespace ThriftManager.Service.MemberServices;
 
@@ -49,9 +50,6 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
         var account = BankAccount.Create(request.Account.AccountNumber,
             request.Account.AccountName, request.Account.BVN, request.Account.BankId);
 
-
-
-
         var walletNo = AutoGens.GenerateWalletNo();
 
         var member = Member.Create(fullName, request.Gender, request.DateOfBirth,
@@ -95,4 +93,5 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
         //    return mobileRegex.IsMatch(mobileNumber);
         //}
     }
+
 }
