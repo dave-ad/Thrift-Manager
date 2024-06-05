@@ -1,6 +1,4 @@
-﻿
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public class MemberWalletTransaction
 {

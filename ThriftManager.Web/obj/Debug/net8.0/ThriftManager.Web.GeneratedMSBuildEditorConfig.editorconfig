@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\David\source\repos\ThriftManager\ThriftManager\ThriftManager.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Group/CreateGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQ3JlYXRlR3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Group/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Home/AddMember.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRNZW1iZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Member/AddMember.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEFkZE1lbWJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Member/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/David/source/repos/ThriftManager/ThriftManager/ThriftManager.Web/Views/Shared/Error.cshtml]

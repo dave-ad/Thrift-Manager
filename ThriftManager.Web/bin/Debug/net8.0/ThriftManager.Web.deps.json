@@ -9,6 +9,7 @@
       "ThriftManager.Web/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.4",
+          "Microsoft.EntityFrameworkCore.Tools": "8.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
           "ThriftManager.DTO": "1.0.0",
           "ThriftManager.Service": "1.0.0",
@@ -1279,6 +1280,21 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/8.0.5": {},
+      "Microsoft.EntityFrameworkCore.Design/8.0.4": {
+        "dependencies": {
+          "Humanizer.Core": "2.14.1",
+          "Microsoft.CodeAnalysis.CSharp.Workspaces": "4.8.0",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.5",
+          "Microsoft.Extensions.DependencyModel": "8.0.0",
+          "Mono.TextTemplating": "2.3.1"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "8.0.4.0",
+            "fileVersion": "8.0.424.16902"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/8.0.5": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.5",
@@ -1332,6 +1348,11 @@
             "assemblyVersion": "8.0.5.0",
             "fileVersion": "8.0.524.21704"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/8.0.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "8.0.4"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
@@ -3517,6 +3538,13 @@
       "path": "microsoft.entityframeworkcore.analyzers/8.0.5",
       "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.5.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Design/8.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QD5/h3+h4N7GlUaA4bzaYFW9CoeB7ne2KMiDIENIT0GPx+E6up/v9fDA36FAS3NIq9zeKUAQgN8aj6IwE7tMGw==",
+      "path": "microsoft.entityframeworkcore.design/8.0.4",
+      "hashPath": "microsoft.entityframeworkcore.design.8.0.4.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Relational/8.0.5": {
       "type": "package",
       "serviceable": true,
@@ -3551,6 +3579,13 @@
       "sha512": "sha512-vBJR6QzJrZvd6oHsfMXA++v+dKYx/vhoPDgUgQZwKbcP9oYJowzoWl5JydPjlrCjwq4sxIOyqxJ7m/rSsb7zMg==",
       "path": "microsoft.entityframeworkcore.sqlserver/8.0.5",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.5.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/8.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-txPWQf+SGx8Aa6Z8FbdQ8zMHckArroaE0AlV6iqnqJp9w46RiOBtkJlkPgohteQS1uhxIwjtHfwFiQATw059fg==",
+      "path": "microsoft.entityframeworkcore.tools/8.0.4",
+      "hashPath": "microsoft.entityframeworkcore.tools.8.0.4.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
       "type": "package",

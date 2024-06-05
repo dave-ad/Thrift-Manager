@@ -1,0 +1,7 @@
+﻿@model ServiceResponse<GroupIdResponse>
+
+@{
+    var resp = Model.IsSuccessful ? "Group Created Successfully" : Model.Error;
+}
+
+<h5>@resp</h5>
