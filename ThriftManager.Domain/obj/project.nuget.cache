@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X6vO53mQHwbhQ4Laujektn3k/X18z3cSFeIg9h5xuvTdN+6Xlx4r+aCXMNGULwM05CaAc/YWJpUr3Z+gQK6jGg==",
+  "dgSpecHash": "lFXB77h8XmwnBK+aBIFEIkYX41L0Oak4gzr6b61Cbri8f2aojJ9Ruekl3yZUfFmmwZdlMgG+ncfvJ4oW+PNHiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
+  "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Domain\\ThriftManager.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

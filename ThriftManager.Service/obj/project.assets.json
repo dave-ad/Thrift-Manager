@@ -7853,11 +7853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
+      "projectUniqueName": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Service\\ThriftManager.Service.csproj",
       "projectName": "ThriftManager.Service",
-      "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\ThriftManager.Service.csproj",
+      "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Service\\ThriftManager.Service.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Service\\obj\\",
+      "outputPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7874,17 +7874,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
-              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
+            "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Domain\\ThriftManager.Domain.csproj": {
+              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Domain\\ThriftManager.Domain.csproj"
             },
-            "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
-              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
+            "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.DTO\\ThriftManager.DTO.csproj": {
+              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.DTO\\ThriftManager.DTO.csproj"
             },
-            "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj"
+            "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Infrastructure\\ThriftManager.Infrastructure.csproj"
             },
-            "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
-              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
+            "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Utils\\ThriftManager.Utils.csproj": {
+              "projectPath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Utils\\ThriftManager.Utils.csproj"
             }
           }
         }

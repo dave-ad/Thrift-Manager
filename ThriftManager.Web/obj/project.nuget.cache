@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zaxmD+C2UBx9RrSzSI0/KRov1Pxd37fe69ssre2l3ECiElVUuChD+wEUnbjI+1Oz8MKYAzJAyLG9GUV/zBH7lw==",
+  "dgSpecHash": "czVMSz1Em2d7MTwpSCR1N8u9x7EM/d2XL89CqSR+dSHi5IcXQRb/D++1aNmcbV03BcZr/OAOqs8ahRf3GfsH5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\ThriftManager\\ThriftManager.Web\\ThriftManager.Web.csproj",
+  "projectFilePath": "C:\\Users\\David\\source\\repos\\ThriftManager\\Thrift-Manager\\ThriftManager.Web\\ThriftManager.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
