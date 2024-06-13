@@ -24,4 +24,3 @@ public partial class Contribution
     private readonly HashSet<ContributingMember> _contributingMembers = new HashSet<ContributingMember>();
 
 }
-

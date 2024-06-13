@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThriftManager.DTO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eedadda08c0c17b2ccf8bbccb5b8627ec2bd45f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc674fafe467f9291d1ae14fa65d185d7edfa54f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThriftManager.DTO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThriftManager.DTO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

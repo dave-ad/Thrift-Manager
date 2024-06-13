@@ -23,51 +23,55 @@ public class MemberController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    //public async Task<IActionResult> AddMember()
     public async Task<IActionResult> AddMember(CreateMemberRequest newMember)
 {
 
         if (!ModelState.IsValid)
         {
-            return View(newMember);
+            return View(nameof(AddMember), newMember);
         }
 
         ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
 
         if (resp.IsSuccessful)
         {
+            TempData["SuccessMessage"] = "Member added successfully.";
             return RedirectToAction(nameof(Index));
         }
         else
         {
             ModelState.AddModelError("", "Failed to create member");
-            return View(newMember);
+            //return View(resp);
+            return View(nameof(AddMember), newMember);
         }
-
-        //var account = new MemberBankAccount
-        //{
-        //    AccountName = "Jack Doe",
-        //    AccountNumber = "1834267801",
-        //    BankId = 3,
-        //    BVN = "55363214398"
-        //};
-        //var newMember = new CreateMemberRequest
-        //{
-        //    FirstName = "Jane",
-        //    LastName = "Doe",
-        //    OtherNames = "Jack",
-        //    Email = "janedoe@email.com",
-        //    DateOfBirth = new DateOnly(2000, 12, 05),
-        //    Gender = Gender.Female,
-        //    MobileNumber = "08012345836",
-        //    NIN = "9233938251",
-        //    Account = account
-        //};
-
-        //ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
-
-        //return View(resp);
     }
+
+    //public async Task<IActionResult> AddMember()
+    //{
+    //var account = new MemberBankAccount
+    //{
+    //    AccountName = "James Joseph",
+    //    AccountNumber = "1234567801",
+    //    BankId = 1,
+    //    BVN = "55563214598"
+    //};
+    //var newMember = new CreateMemberRequest
+    //{
+    //    Account = account,
+    //    m
+    //        DateOfBirth = new DateOnly(1990, 02, 02),
+    //    Email = "somebody@yahoo.com",
+    //    FirstName = "Somebody",
+    //    Gender = Gender.Male,
+    //    LastName = "Joseph",
+    //    MobileNumber = "08056423145",
+    //    NIN = "0213653241",
+    //    OtherNames = "James"
+    //};
+
+    //    ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
+    //    return View(resp);
+    //}
 
 
     public IActionResult Privacy()

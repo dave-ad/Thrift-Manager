@@ -27,10 +27,6 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
             .Property(c => c.Amount)
             .HasColumnType("decimal(18,2)");
 
-        modelBuilder.Entity<ContributionSession>()
-            .Property(c => c.ContributionAmount)
-            .HasColumnType("decimal(18,2)");
-
         modelBuilder.Entity<ContributionWallet>()
             .Property(c => c.Balance)
             .HasColumnType("decimal(18,2)");
@@ -50,14 +46,6 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         modelBuilder.Entity<MemberWalletTransaction>()
             .Property(mwt => mwt.TransactionAmount)
             .HasColumnType("decimal(18,2)");
-
-        modelBuilder.Entity<SessionWallet>()
-            .Property(sw => sw.Balance)
-            .HasColumnType("decimal(18,2)");
-
-        modelBuilder.Entity<SessionWalletTransaction>()
-            .Property(swt => swt.TransactionAmount)
-            .HasColumnType("decimal(18,2)");
     }
 
     public DbSet<Member> Members { get; set; }
@@ -68,5 +56,4 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
     public DbSet<ContributingMember> ContributingMembers { get; set; }
     public DbSet<ContributionWallet> ContributionWallets { get; set; }
     public DbSet<ContributionWalletTransaction> ContributionWalletTransactions { get; set; }
-
 }

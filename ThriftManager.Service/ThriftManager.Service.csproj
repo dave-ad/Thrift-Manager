@@ -13,8 +13,4 @@
 		<ProjectReference Include="..\ThriftManager.Utils\ThriftManager.Utils.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="ContributionServices\" />
-	</ItemGroup>
-
 </Project>

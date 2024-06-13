@@ -1,7 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-
-namespace ThriftManager.Service.MemberServices;
+﻿namespace ThriftManager.Service.MemberServices;
 
 public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMemberService
 {
@@ -11,37 +8,27 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
     {
         var resp = new ServiceResponse<MemberIdResponse>();
         //Validate the request object
-        //Validate if member already exist
 
-        if (string.IsNullOrWhiteSpace(request.FirstName) || string.IsNullOrWhiteSpace(request.LastName))
+        var validationResponse = ValidateRequest(request);
+        if (!validationResponse.IsSuccessful)
         {
-            resp.Error = "First Name and Last Name are required.";
-            resp.IsSuccessful = false;
-            return resp;
+            return validationResponse;
         }
 
-        //if (string.IsNullOrWhiteSpace(request.Email) || !IsValidEmail(request.Email))
+        //var existingMember = _thriftAppDbContext.Members
+        //    .FirstOrDefault(a => a.Email.Value.Trim().ToLower() == request.Email.Trim().ToLower() ||
+        //                         a.NIN.Value == request.NIN || 
+        //                         a.BankAccount.BVN == request.Account.BVN || 
+        //                         a.BankAccount.AccountNo == request.Account.AccountNumber || 
+        //                         a.MobileNumber.Value == request.MobileNumber);
+
+        //if (existingMember != null)
         //{
-        //    resp.Error = "A valid Email is required.";
+        //    resp.Error = "Duplicate Error. A member with the provided details already exists.";
+        //    resp.TechMessage = "Duplicate Error. A member with the provided details already exists.";
         //    resp.IsSuccessful = false;
         //    return resp;
         //}
-
-        //if (string.IsNullOrWhiteSpace(request.MobileNumber) || !IsValidMobileNumber(request.MobileNumber))
-        //{
-        //    resp.Error = "A valid Mobile Number is required.";
-        //    resp.IsSuccessful = false;
-        //    return resp;
-        //}
-
-        var check = _thriftAppDbContext.Members.FirstOrDefault(m => m.Email.Value.Trim().ToLower() == request.Email.Trim().ToLower());
-        if (check != null && check.MemberId > 0)
-        {
-            resp.Error = "Duplicate Error. You have already registered";
-            resp.TechMessage = "Duplicate Error. You have already registered";
-            resp.IsSuccessful = false;
-            return resp;
-        }
 
         var fullName = FullName.Create(request.LastName, request.FirstName, request.OtherNames);
         var email = Email.Create(request.Email);
@@ -79,19 +66,61 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             resp.IsSuccessful = false;
             return resp;
         }
-
-        //private bool IsValidEmail(string email)
-        //{
-        //    var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-        //    return emailRegex.IsMatch(email);
-        //}
-
-        //private bool IsValidMobileNumber(string mobileNumber)
-        //{
-        //    // Assuming a valid mobile number format, adjust the regex as needed
-        //    var mobileRegex = new Regex(@"^\+?[1-9]\d{1,14}$");
-        //    return mobileRegex.IsMatch(mobileNumber);
-        //}
     }
 
+    private ServiceResponse<MemberIdResponse> ValidateRequest(CreateMemberRequest request)
+    {
+        var resp = new ServiceResponse<MemberIdResponse>();
+
+        if (string.IsNullOrWhiteSpace(request.FirstName))
+        {
+            resp.Error = "First Name is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.LastName))
+        {
+            resp.Error = "Last Name is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Email))
+        {
+            resp.Error = "Email is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.MobileNumber))
+        {
+            resp.Error = "Mobile Number is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.NIN))
+        {
+            resp.Error = "NIN is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.Account == null || string.IsNullOrWhiteSpace(request.Account.AccountNumber))
+        {
+            resp.Error = "Account Number is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Account.BVN))
+        {
+            resp.Error = "BVN is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        return new ServiceResponse<MemberIdResponse> { IsSuccessful = true };
+    }
 }
