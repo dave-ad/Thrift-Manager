@@ -24,6 +24,12 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         modelBuilder.HasDefaultSchema(DEFAULT_SCHEMA);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ThriftAppDbContext).Assembly);
 
+        modelBuilder.Entity<Bank>().HasData(
+            new Bank { BankId = 1, BankName = "Bank A" },
+            new Bank { BankId = 2, BankName = "Bank B" },
+            new Bank { BankId = 3, BankName = "Bank C" }
+        );
+
         // Specify column types for decimal properties
         modelBuilder.Entity<Contribution>()
             .Property(c => c.Amount)

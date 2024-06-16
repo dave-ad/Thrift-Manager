@@ -16,7 +16,7 @@ internal class ContributionWalletConfig : IEntityTypeConfiguration<ContributionW
             c.Property(x => x.AccountNo).HasMaxLength(10).IsRequired();
             c.Property(x => x.AccountName).HasMaxLength(80).IsRequired();
             c.Property(x => x.BVN).HasMaxLength(11);
-            c.Property(x => x.BankId);
+            c.Property(x => x.BankName);
         });
 
         builder.HasMany(x => x.WalletTransactions).WithOne(x => x.ContributionWallet).HasForeignKey(x => x.ContributionWalletId);

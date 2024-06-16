@@ -37,7 +37,7 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
         var mobileNo = MobileNo.Create(request.MobileNumber);
         var nin = NIN.Create(request.NIN);
         var account = BankAccount.Create(request.Account.AccountNumber,
-            request.Account.AccountName, request.Account.BVN, request.Account.BankId);
+            request.Account.AccountName, request.Account.BVN, request.Account.BankName);
 
         var walletNo = AutoGens.GenerateWalletNo();
 
@@ -156,6 +156,13 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
         else if (request.Account.BVN.Length != 11 || !request.Account.BVN.All(char.IsDigit))
         {
             resp.Error = "BVN must be 11 digits.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Account.BankName))
+        {
+            resp.Error = "Bank Name is required.";
             resp.IsSuccessful = false;
             return resp;
         }
