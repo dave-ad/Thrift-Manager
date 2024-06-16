@@ -1,4 +1,5 @@
 ﻿using System;
+using ThriftManager.Domain.ValueObjects;
 
 namespace ThriftManager.Infrastructure;
 
@@ -12,6 +13,7 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         DevConnection = "Server=David\\MSSQLSERVER2022;Database=ThriftAppDb;" +
            "initial catalog=ThriftAppDb;Trusted_Connection=True;MultipleActiveResultSets=true;integrated security=True;TrustServerCertificate=True;";
     }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
         .UseSqlServer(DevConnection)

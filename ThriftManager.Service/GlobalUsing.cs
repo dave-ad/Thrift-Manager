@@ -9,3 +9,4 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.DependencyInjection;
 global using ThriftManager.Service.GroupServices;
 global using ThriftManager.Service.MemberServices;
+global using System.Net.Mail;

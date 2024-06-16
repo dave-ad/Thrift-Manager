@@ -31,17 +31,27 @@ public class MemberController : Controller
             return View(nameof(AddMember), newMember);
         }
 
-        ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
+        try
+        {
+            ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
 
-        if (resp.IsSuccessful)
-        {
-            TempData["SuccessMessage"] = "Member added successfully.";
-            return RedirectToAction(nameof(Index));
+            if (resp.IsSuccessful)
+            {
+                TempData["SuccessMessage"] = "Member added successfully.";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                _logger.LogError("Failed to create member: {Message}", resp.TechMessage);
+                ModelState.AddModelError("", "Failed to create member." + resp.Error);
+                //return View(resp);
+                return View(nameof(AddMember), newMember);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            ModelState.AddModelError("", "Failed to create member");
-            //return View(resp);
+            _logger.LogError(ex, "An exception occurred while creating the member.");
+            ModelState.AddModelError("", "An error occurred while creating the member. Please try again.");
             return View(nameof(AddMember), newMember);
         }
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThriftManager.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc674fafe467f9291d1ae14fa65d185d7edfa54f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a21db988b7ab1a8e0b6626f0be49bd98468cd0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThriftManager.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThriftManager.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
