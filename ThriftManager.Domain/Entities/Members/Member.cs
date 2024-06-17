@@ -1,4 +1,6 @@
-﻿namespace ThriftManager.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ThriftManager.Domain.Entities;
 
 public partial class Member : Entity
 {

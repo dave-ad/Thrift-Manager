@@ -21,7 +21,7 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             .FirstOrDefault(a => a.Email.Value.Trim().ToLower() == request.Email.Trim().ToLower() ||
                                  a.NIN.Value == request.NIN ||
                                  a.BankAccount.BVN == request.Account.BVN ||
-                                 a.BankAccount.AccountNo == request.Account.AccountNumber ||
+                                 //a.BankAccount.AccountNo == request.Account.AccountNumber ||
                                  a.MobileNumber.Value == request.MobileNumber);
 
         if (existingMember != null)
@@ -107,6 +107,12 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             resp.IsSuccessful = false;
             return resp;
         }
+        else if (request.MobileNumber.Length > 11)
+        {
+            resp.Error = "Mobile Number must be 11 digits.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
         else if (!IsValidPhoneNumber(request.MobileNumber))
         {
             resp.Error = "Invalid Mobile Number format.";
@@ -147,6 +153,13 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             return resp;
         }
 
+        if (string.IsNullOrWhiteSpace(request.Account.BankName))
+        {
+            resp.Error = "Bank is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
         if (string.IsNullOrWhiteSpace(request.Account.BVN))
         {
             resp.Error = "BVN is required.";
@@ -156,13 +169,6 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
         else if (request.Account.BVN.Length != 11 || !request.Account.BVN.All(char.IsDigit))
         {
             resp.Error = "BVN must be 11 digits.";
-            resp.IsSuccessful = false;
-            return resp;
-        }
-
-        if (string.IsNullOrWhiteSpace(request.Account.BankName))
-        {
-            resp.Error = "Bank Name is required.";
             resp.IsSuccessful = false;
             return resp;
         }
@@ -185,6 +191,12 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
 
     private bool IsValidPhoneNumber(string phoneNumber)
     {
-        return Regex.IsMatch(phoneNumber, @"^\+[1-9]{1}[0-9]{3,14}$");
+        //return Regex.IsMatch(phoneNumber, @"^\+[1-9]{1}[0-9]{3,14}$");
+        return Regex.IsMatch(phoneNumber, @"^(070|080|081|090|091)\d{8}$");
+    }
+
+    public async Task<IEnumerable<Bank>> GetBanksAsync()
+    {
+        return await _thriftAppDbContext.Banks.ToListAsync();
     }
 }

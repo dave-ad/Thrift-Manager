@@ -1,4 +1,6 @@
-﻿namespace ThriftManager.Web.Controllers;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace ThriftManager.Web.Controllers;
 
 public class MemberController : Controller
 {
@@ -16,7 +18,7 @@ public class MemberController : Controller
     }
 
     [HttpGet]
-    public IActionResult AddMember()
+    public async Task<IActionResult> AddMember()
     {
         return View();
     }

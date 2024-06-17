@@ -64,20 +64,9 @@
         <input asp-for="Account.AccountNumber" class="form-control" id="Account_AccountNumber" name="Account.AccountNumber" required>
         <span asp-validation-for="Account.AccountNumber" class="text-danger"></span>
     </div>
-@*     <div class="form-group">
-        <label asp-for="Account.BankId">Bank ID</label>
-        <input asp-for="Account.BankId" class="form-control" id="Account_BankId" name="Account.BankId" required>
-        <span asp-validation-for="Account.BankId" class="text-danger"></span>
-    </div> *@
     <div class="form-group">
-        <label asp-for="Account.BankName" class="control-label"></label>
-        <select asp-for="Account.BankName" class="form-control">
-            <option value="">Select a Bank</option>
-            <option value="1">Bank 1</option>
-            <option value="2">Bank 2</option>
-            <option value="3">Bank 3</option>
-            <!-- Add other bank options here -->
-        </select>
+        <label asp-for="Account.BankName">Bank Name</label>
+        <input asp-for="Account.BankName" class="form-control" id="Account_BankName" name="Account.BankName" required>
         <span asp-validation-for="Account.BankName" class="text-danger"></span>
     </div>
     <div class="form-group">

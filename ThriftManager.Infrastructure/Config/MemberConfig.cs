@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ThriftManager.Domain.Entities;
+using ThriftManager.Domain.ValueObjects;
 
 namespace ThriftManager.Infrastructure.Config;
 
@@ -36,9 +37,7 @@ internal class MemberConfig : IEntityTypeConfiguration<Member>
             c.Property(x => x.Hash);
         });
 
-
-        builder.HasOne(x => x.MemberWallet).WithOne(x => x.Member);
-
-        NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberId), "member_memberid_seq", ThriftAppDbContext.DEFAULT_SCHEMA);
+        builder.HasOne(x => x.MemberWallet)
+            .WithOne(x => x.Member);
     }
 }

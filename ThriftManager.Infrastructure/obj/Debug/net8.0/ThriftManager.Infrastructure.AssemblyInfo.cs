@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThriftManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ced49019bf6521472357bf4e3b8c467ed1659cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+600f309c149dfede61821e3553131a67279aac53")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThriftManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThriftManager.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
