@@ -1,5 +1,4 @@
 ﻿using System;
-using ThriftManager.Domain.ValueObjects;
 
 namespace ThriftManager.Infrastructure;
 
@@ -13,7 +12,6 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         DevConnection = "Server=David\\MSSQLSERVER2022;Database=ThriftAppDb;" +
            "initial catalog=ThriftAppDb;Trusted_Connection=True;MultipleActiveResultSets=true;integrated security=True;TrustServerCertificate=True;";
     }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
         .UseSqlServer(DevConnection)
@@ -48,35 +46,6 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         modelBuilder.Entity<MemberWalletTransaction>()
             .Property(mwt => mwt.TransactionAmount)
             .HasColumnType("decimal(18,2)");
-
-        // Configure Member with owned BankAccount
-        modelBuilder.Entity<Member>()
-            .OwnsOne(m => m.BankAccount, bankAccount =>
-            {
-                bankAccount.Property(bank => bank.AccountName).HasMaxLength(100);
-                bankAccount.Property(bank => bank.AccountNo).HasMaxLength(20);
-                bankAccount.Property(bank => bank.BVN).HasMaxLength(11);
-                //bankAccount.Property(bank => bank.BankId).IsRequired();
-                //bankAccount.WithOwner();
-            });
-
-        //// Configure Bank with one-to-one relationship with Member
-        //modelBuilder.Entity<Bank>()
-        //    .HasOne(b => b.Member)
-        //    .WithOne()
-        //    .HasForeignKey<Member>(m => m.BankId);
-
-        //modelBuilder.Entity<Bank>().HasData(
-        //    new Bank { BankId = 1, BankName = "Bank A" },
-        //    new Bank { BankId = 2, BankName = "Bank B" },
-        //    new Bank { BankId = 3, BankName = "Bank C" }
-        //);
-
-        //// Configure one-to-one relationship between Member and Bank
-        //modelBuilder.Entity<Member>()
-        //    .HasOne(member => member.BankAccount)
-        //    .WithOne(bank => bank.Member)
-        //    .HasForeignKey<Bank>(bank => bank.MemberId);
     }
 
     public DbSet<Member> Members { get; set; }
@@ -87,5 +56,4 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
     public DbSet<ContributingMember> ContributingMembers { get; set; }
     public DbSet<ContributionWallet> ContributionWallets { get; set; }
     public DbSet<ContributionWalletTransaction> ContributionWalletTransactions { get; set; }
-    public DbSet<Bank> Banks { get; set; }
 }

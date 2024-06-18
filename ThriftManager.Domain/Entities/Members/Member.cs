@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public partial class Member : Entity
 {
@@ -12,7 +10,7 @@ public partial class Member : Entity
     public MobileNo MobileNumber { get; private set; } = MobileNo.Default();
     public NIN NIN { get; private set; } = NIN.Default();
     public MemberStatus Status { get; private set; }
-    public BankAccount BankAccount { get; private set; }
+    //public BankAccount BankAccount { get; private set; }
 
     public virtual MemberWallet MemberWallet { get; private set; } = default!;
     //public virtual MemberAddress MemberAddress { get; private set; } = default!;

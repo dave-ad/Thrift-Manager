@@ -2,9 +2,7 @@
 @* @Html.AntiForgeryToken() *@
 
 <h2> Add Member </h2>
-@{
-    ViewData["Title"] = "Create Member";
-}
+
 
 <form asp-action="AddMember" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -65,9 +63,9 @@
         <span asp-validation-for="Account.AccountNumber" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Account.BankName">Bank Name</label>
-        <input asp-for="Account.BankName" class="form-control" id="Account_BankName" name="Account.BankName" required>
-        <span asp-validation-for="Account.BankName" class="text-danger"></span>
+        <label asp-for="Account.BankId">Bank ID</label>
+        <input asp-for="Account.BankId" class="form-control" id="Account_BankId" name="Account.BankId" required>
+        <span asp-validation-for="Account.BankId" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Account.BVN">BVN</label>

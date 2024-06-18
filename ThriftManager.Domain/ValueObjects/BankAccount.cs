@@ -1,36 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ThriftManager.Domain.ValueObjects;
+﻿namespace ThriftManager.Domain.ValueObjects;
 
 public record BankAccount
 {
     public string AccountNo { get; }
     public string AccountName { get; }
     public string BVN { get; }
-    public string BankName { get; set; }
-    //public Bank Bank { get; }
+    public int BankId { get; }
 
     private BankAccount()
     {
+        BankId = 0;
         AccountName = "";
         AccountNo = "";
         BVN = "";
-        BankName = "";
-        //Bank = null!;
     }
 
-    //private BankAccount(string accountNo, string accountName, string bvn, Bank bank)
-    private BankAccount(string accountNo, string accountName, string bvn, string bankName)
+    private BankAccount(string accountNo, string accountName, string bvn, int bankId)
     {
+        BankId = bankId;
         AccountName = accountName;
         AccountNo = accountNo;
         BVN = bvn;
-        BankName = bankName;
     }
 
     public static BankAccount Default() => new();
 
-    //public static BankAccount Create(string accountNo, string accountName, string bvn, Bank bank)
-    public static BankAccount Create(string accountNo, string accountName, string bvn, string bankName)
-        => new(accountNo, accountName, bvn, bankName);
+    public static BankAccount Create(string accountNo, string accountName, string bvn, int bankId)
+        => new(accountNo, accountName, bvn, bankId);
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace ThriftManager.Web.Controllers;
+﻿namespace ThriftManager.Web.Controllers;
 
 public class MemberController : Controller
 {
@@ -18,7 +16,7 @@ public class MemberController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> AddMember()
+    public IActionResult AddMember()
     {
         return View();
     }
@@ -33,27 +31,17 @@ public class MemberController : Controller
             return View(nameof(AddMember), newMember);
         }
 
-        try
-        {
-            ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
+        ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
 
-            if (resp.IsSuccessful)
-            {
-                TempData["SuccessMessage"] = "Member added successfully.";
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                _logger.LogError("Failed to create member: {Message}", resp.TechMessage);
-                ModelState.AddModelError("", "Failed to create member." + resp.Error);
-                //return View(resp);
-                return View(nameof(AddMember), newMember);
-            }
-        }
-        catch (Exception ex)
+        if (resp.IsSuccessful)
         {
-            _logger.LogError(ex, "An exception occurred while creating the member.");
-            ModelState.AddModelError("", "An error occurred while creating the member. Please try again.");
+            TempData["SuccessMessage"] = "Member added successfully.";
+            return RedirectToAction(nameof(Index));
+        }
+        else
+        {
+            ModelState.AddModelError("", "Failed to create member");
+            //return View(resp);
             return View(nameof(AddMember), newMember);
         }
     }
