@@ -1,5 +1,3 @@
-﻿namespace ThriftManager.Domain.Entities;
-
 public partial class Member : Entity
 {
     public int MemberId { get; private set; }
