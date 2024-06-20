@@ -33,6 +33,18 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Ignore build directories
+**/bin/
+**/obj/
+
+# Build output
+bin/
+obj/
+ThriftManager.DTO/bin/
+ThriftManager.Domain/bin/
+ThriftManager.Web/bin/
+ThriftManager.Web/obj/
+
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -97,6 +109,12 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+
+# Other generated files
+*.dll
+*.pdb
+*.exe
+*.cache
 
 # Chutzpah Test files
 _Chutzpah*
