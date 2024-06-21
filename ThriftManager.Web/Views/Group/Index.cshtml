@@ -1,7 +1,5 @@
-﻿@model ServiceResponse<GroupIdResponse>
-
-@{
-    var resp = Model.IsSuccessful ? "Group Created Successfully" : Model.Error;
+﻿@{
+    ViewData["Title"] = "Group Index";
 }
 
-<h5>@resp</h5>
+<h1>@ViewData["Message"]</h1>
