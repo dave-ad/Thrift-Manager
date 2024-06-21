@@ -1,7 +1,4 @@
-﻿
-using ThriftManager.DTO.Responses;
-
-namespace ThriftManager.Service.GroupServices;
+﻿namespace ThriftManager.Service.GroupServices;
 
 public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGroupService
 {
@@ -14,24 +11,24 @@ public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGrou
         var contributionTimeline = ContributionTimeline.Create(request.Slots
             , request.Period, request.Tenure, request.DueDay);
 
-        var group = Group.Create(request.Name, request.Title, contributionTimeline, request.Amount);
+        var group = Group.Create(request.Name, request.Title, contributionTimeline, request.Amount, request.CreatedBy);
 
         try
         {
             var retGroup = _thriftAppDbContext.Groups.Add(group);
             await _thriftAppDbContext.SaveChangesAsync();
 
-        if (retGroup == null || retGroup.Entity.GroupId < 1)
-        {
-            resp.Error = "Error occured while creating the group";
-            resp.TechMessage = "Unknown Database Error";
-            resp.IsSuccessful = false;
-            return resp;
-        }
+            if (retGroup == null || retGroup.Entity.GroupId < 1)
+            {
+                resp.Error = "Error occured while creating the group";
+                resp.TechMessage = "Unknown Database Error";
+                resp.IsSuccessful = false;
+                return resp;
+            }
 
-        resp.Value = new GroupIdResponse { GroupId = retGroup.Entity.GroupId };
-        resp.IsSuccessful = true;
-        return resp;
+            resp.Value = new GroupIdResponse { GroupId = retGroup.Entity.GroupId };
+            resp.IsSuccessful = true;
+            return resp;
         }
         catch (DbUpdateException ex)
         {

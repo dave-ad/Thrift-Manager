@@ -3,25 +3,27 @@
 public partial class Member : IAggregateRoot
 {
     private Member() { }
-    private Member(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
-        NIN nIN, string walletNumber, BankAccount account)
+    //private Member(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
+    //    NIN nIN, string walletNumber, BankAccount account, BankAccount bankAccount)
+    private Member(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber, NIN nin, MemberStatus status, BankAccount bankAccount, MemberWallet memberWallet)
     {
         Name = name;
         Gender = gender;
         DateOfBirth = dateOfBirth;
         Email = email;
         MobileNumber = mobileNumber;
-        NIN = nIN;
-        Status = MemberStatus.Registered;
-
-        MemberWallet = new MemberWallet(MemberId, walletNumber, account);
-        //MemberAddress = memberAddress;
+        NIN = nin;
+        Status = status;
+        BankAccount = bankAccount;
+        MemberWallet = memberWallet;
     }
 
-    public static Member Create(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber,
-        NIN nIN, string walletNumber, BankAccount account)
+    public static Member Create(FullName name, Gender gender, DateOnly dateOfBirth, Email email, MobileNo mobileNumber, NIN nin, BankAccount bankAccount)
     {
-        return new Member(name, gender, dateOfBirth, email, mobileNumber, nIN, walletNumber, account);
+        var member = new Member(name, gender, dateOfBirth, email, mobileNumber, nin, MemberStatus.Active, bankAccount, null);
+        var memberWallet = new MemberWallet(member.MemberId, AutoGens.GenerateWalletNo(), bankAccount);
+        member.MemberWallet = memberWallet;
+        return member;
     }
 
     public void Update(FullName name, MobileNo mobileNumber, Gender gender)

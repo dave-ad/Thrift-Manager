@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ThriftManager.Infrastructure;
+﻿namespace ThriftManager.Infrastructure;
 
 internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
 {
@@ -46,6 +44,34 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
         modelBuilder.Entity<MemberWalletTransaction>()
             .Property(mwt => mwt.TransactionAmount)
             .HasColumnType("decimal(18,2)");
+
+        //base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Member>(entity =>
+        {
+            entity.HasKey(e => e.MemberId);
+
+            // Configure the owned type BankAccount
+            entity.OwnsOne(e => e.BankAccount, ba =>
+            {
+                ba.Property(b => b.AccountNo)
+                    .HasColumnName("BankAccount_AccountNo")
+                    .IsRequired();
+
+                ba.Property(b => b.AccountName)
+                    .HasColumnName("BankAccount_AccountName")
+                    .IsRequired();
+
+                ba.Property(b => b.BVN)
+                    .HasColumnName("BankAccount_BVN")
+                    .IsRequired();
+
+                ba.Property(b => b.BankName)
+                    .HasColumnName("BankAccount_BankName")
+                    .IsRequired();
+            });
+
+        });
     }
 
     public DbSet<Member> Members { get; set; }

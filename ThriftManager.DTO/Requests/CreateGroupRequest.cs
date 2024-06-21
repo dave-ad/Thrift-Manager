@@ -16,4 +16,5 @@ public class CreateGroupRequest
     public Period Period { get; set; } = default!;
     public int Tenure { get; set; } = default!;
     public int DueDay { get; set; } = default!;
+    public string CreatedBy { get; set; } = default!;
 }

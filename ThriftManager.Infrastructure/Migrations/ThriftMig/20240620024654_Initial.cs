@@ -45,11 +45,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 incrementBy: 10);
 
             migrationBuilder.CreateSequence(
-                name: "SessionWallet_SessionWalletid_seq",
-                schema: "ThriftSchema",
-                incrementBy: 10);
-
-            migrationBuilder.CreateSequence(
                 name: "sessionwallettransaction_sessionwallettransactionid_seq",
                 schema: "ThriftSchema",
                 incrementBy: 10);
@@ -58,30 +53,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 name: "wallettransaction_wallettransactionid_seq",
                 schema: "ThriftSchema",
                 incrementBy: 10);
-
-            migrationBuilder.CreateTable(
-                name: "ContributionSession",
-                schema: "ThriftSchema",
-                columns: table => new
-                {
-                    ContributionSessionId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GroupId = table.Column<int>(type: "int", nullable: false),
-                    Slots = table.Column<int>(type: "int", nullable: false),
-                    ContributionAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Period = table.Column<int>(type: "int", nullable: false),
-                    Tenure = table.Column<int>(type: "int", nullable: false),
-                    DueDay = table.Column<int>(type: "int", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AdminId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ContributionSession", x => x.ContributionSessionId);
-                });
 
             migrationBuilder.CreateTable(
                 name: "Group",
@@ -125,6 +96,10 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     NIN_Value = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     NIN_Hash = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
+                    BankAccount_AccountNo = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    BankAccount_AccountName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    BankAccount_BVN = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    BankAccount_BankName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false)
@@ -132,58 +107,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Member", x => x.MemberId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SessionMember",
-                schema: "ThriftSchema",
-                columns: table => new
-                {
-                    SessionMemberId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ContributionSessionId = table.Column<long>(type: "bigint", nullable: false),
-                    MemberId = table.Column<int>(type: "int", nullable: false),
-                    SlotPosition = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SessionMember", x => x.SessionMemberId);
-                    table.ForeignKey(
-                        name: "FK_SessionMember_ContributionSession_ContributionSessionId",
-                        column: x => x.ContributionSessionId,
-                        principalSchema: "ThriftSchema",
-                        principalTable: "ContributionSession",
-                        principalColumn: "ContributionSessionId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SessionWallet",
-                schema: "ThriftSchema",
-                columns: table => new
-                {
-                    SessionWalletId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ContributionSessionId = table.Column<long>(type: "bigint", nullable: false),
-                    GroupId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WalletNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AccountName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BankId = table.Column<int>(type: "int", nullable: false),
-                    Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SessionWallet", x => x.SessionWalletId);
-                    table.ForeignKey(
-                        name: "FK_SessionWallet_ContributionSession_ContributionSessionId",
-                        column: x => x.ContributionSessionId,
-                        principalSchema: "ThriftSchema",
-                        principalTable: "ContributionSession",
-                        principalColumn: "ContributionSessionId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,7 +152,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     Account_AccountNo = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Account_AccountName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Account_BVN = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    Account_BankId = table.Column<int>(type: "int", nullable: false),
+                    Account_BankName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -241,34 +164,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                         principalSchema: "ThriftSchema",
                         principalTable: "Member",
                         principalColumn: "MemberId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SessionWalletTransaction",
-                schema: "ThriftSchema",
-                columns: table => new
-                {
-                    SessionWalletTransactionId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ContributionSessionId = table.Column<long>(type: "bigint", nullable: false),
-                    GroupId = table.Column<int>(type: "int", nullable: false),
-                    MemberId = table.Column<int>(type: "int", nullable: false),
-                    SessionWalletId = table.Column<long>(type: "bigint", nullable: false),
-                    TransactionType = table.Column<int>(type: "int", nullable: false),
-                    TransactionAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SessionWalletTransaction", x => x.SessionWalletTransactionId);
-                    table.ForeignKey(
-                        name: "FK_SessionWalletTransaction_SessionWallet_SessionWalletId",
-                        column: x => x.SessionWalletId,
-                        principalSchema: "ThriftSchema",
-                        principalTable: "SessionWallet",
-                        principalColumn: "SessionWalletId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -310,7 +205,7 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                     Account_AccountNo = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Account_AccountName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Account_BVN = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    Account_BankId = table.Column<int>(type: "int", nullable: false),
+                    Account_BankName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -416,25 +311,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 schema: "ThriftSchema",
                 table: "MemberWalletTransaction",
                 column: "MemberWalletId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SessionMember_ContributionSessionId",
-                schema: "ThriftSchema",
-                table: "SessionMember",
-                column: "ContributionSessionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SessionWallet_ContributionSessionId",
-                schema: "ThriftSchema",
-                table: "SessionWallet",
-                column: "ContributionSessionId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SessionWalletTransaction_SessionWalletId",
-                schema: "ThriftSchema",
-                table: "SessionWalletTransaction",
-                column: "SessionWalletId");
         }
 
         /// <inheritdoc />
@@ -453,14 +329,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 schema: "ThriftSchema");
 
             migrationBuilder.DropTable(
-                name: "SessionMember",
-                schema: "ThriftSchema");
-
-            migrationBuilder.DropTable(
-                name: "SessionWalletTransaction",
-                schema: "ThriftSchema");
-
-            migrationBuilder.DropTable(
                 name: "ContributionWallet",
                 schema: "ThriftSchema");
 
@@ -469,19 +337,11 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
                 schema: "ThriftSchema");
 
             migrationBuilder.DropTable(
-                name: "SessionWallet",
-                schema: "ThriftSchema");
-
-            migrationBuilder.DropTable(
                 name: "Contribution",
                 schema: "ThriftSchema");
 
             migrationBuilder.DropTable(
                 name: "Member",
-                schema: "ThriftSchema");
-
-            migrationBuilder.DropTable(
-                name: "ContributionSession",
                 schema: "ThriftSchema");
 
             migrationBuilder.DropTable(
@@ -510,10 +370,6 @@ namespace ThriftManager.Infrastructure.Migrations.ThriftMig
 
             migrationBuilder.DropSequence(
                 name: "sessionmember_sessionmemberid_seq",
-                schema: "ThriftSchema");
-
-            migrationBuilder.DropSequence(
-                name: "SessionWallet_SessionWalletid_seq",
                 schema: "ThriftSchema");
 
             migrationBuilder.DropSequence(
