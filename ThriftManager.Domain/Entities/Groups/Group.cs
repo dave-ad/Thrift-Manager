@@ -8,7 +8,7 @@ public partial class Group : Entity
     public decimal Amount { get; private set; }
     public ContributionTimeline Timeline { get; private set; } = ContributionTimeline.Default();
     public ItemStatus Status { get; private set; }
-    public int CreatedBy { get; private set; }
+    public string CreatedBy { get; private set; } = default!;
     public DateTime CreatedOn { get; private set; }
     public DateTime? UpdatedOn { get; private set; }
 

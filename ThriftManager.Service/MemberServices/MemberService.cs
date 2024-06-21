@@ -7,7 +7,6 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
     public async Task<ServiceResponse<MemberIdResponse>> CreateMember(CreateMemberRequest request)
     {
         var resp = new ServiceResponse<MemberIdResponse>();
-        //Validate the request object
 
         var validationResponse = ValidateRequest(request);
         if (!validationResponse.IsSuccessful)
@@ -15,32 +14,31 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             return validationResponse;
         }
 
-        //var existingMember = _thriftAppDbContext.Members
-        //    .FirstOrDefault(a => a.Email.Value.Trim().ToLower() == request.Email.Trim().ToLower() ||
-        //                         a.NIN.Value == request.NIN || 
-        //                         a.BankAccount.BVN == request.Account.BVN || 
-        //                         a.BankAccount.AccountNo == request.Account.AccountNumber || 
-        //                         a.MobileNumber.Value == request.MobileNumber);
+        var existingMember = _thriftAppDbContext.Members
+            .FirstOrDefault(a => a.Email.Value.Trim().ToLower() == request.Email.Trim().ToLower() ||
+                                 a.NIN.Value == request.NIN ||
+                                 a.BankAccount.BVN == request.Account.BVN ||
+                                 a.BankAccount.AccountNo == request.Account.AccountNumber ||
+                                 a.MobileNumber.Value == request.MobileNumber);
 
-        //if (existingMember != null)
-        //{
-        //    resp.Error = "Duplicate Error. A member with the provided details already exists.";
-        //    resp.TechMessage = "Duplicate Error. A member with the provided details already exists.";
-        //    resp.IsSuccessful = false;
-        //    return resp;
-        //}
+        if (existingMember != null)
+        {
+            resp.Error = "Duplicate Error. A member with the provided details already exists.";
+            resp.TechMessage = "Duplicate Error. A member with the provided details already exists.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
         var fullName = FullName.Create(request.LastName, request.FirstName, request.OtherNames);
         var email = Email.Create(request.Email);
         var mobileNo = MobileNo.Create(request.MobileNumber);
         var nin = NIN.Create(request.NIN);
         var account = BankAccount.Create(request.Account.AccountNumber,
-            request.Account.AccountName, request.Account.BVN, request.Account.BankId);
+            request.Account.AccountName, request.Account.BVN, request.Account.BankName);
 
         var walletNo = AutoGens.GenerateWalletNo();
 
-        var member = Member.Create(fullName, request.Gender, request.DateOfBirth,
-            email, mobileNo, nin, walletNo, account);
+        var member = Member.Create(fullName, request.Gender, request.DateOfBirth, email, mobileNo, nin, account);
 
         try
         {
@@ -92,10 +90,22 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             resp.IsSuccessful = false;
             return resp;
         }
+        else if (!IsValidEmail(request.Email))
+        {
+            resp.Error = "Invalid Email format. 'example@mail.com'";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
         if (string.IsNullOrWhiteSpace(request.MobileNumber))
         {
             resp.Error = "Mobile Number is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+        else if (!IsValidPhoneNumber(request.MobileNumber) || request.MobileNumber.Length > 11)
+        {
+            resp.Error = "Invalid Mobile Number format.";
             resp.IsSuccessful = false;
             return resp;
         }
@@ -106,10 +116,37 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             resp.IsSuccessful = false;
             return resp;
         }
+        else if (request.NIN.Length != 11 || !request.NIN.All(char.IsDigit))
+        {
+            resp.Error = "NIN must be 11 digits.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
-        if (request.Account == null || string.IsNullOrWhiteSpace(request.Account.AccountNumber))
+        //if (request.Account == null || string.IsNullOrWhiteSpace(request.Account.AccountNumber))
+        if (string.IsNullOrWhiteSpace(request.Account.AccountNumber))
         {
             resp.Error = "Account Number is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+        else if (request.Account.AccountNumber.Length != 10 || !request.Account.AccountNumber.All(char.IsDigit))
+        {
+            resp.Error = "Account Number must be 10 digits.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Account.AccountName))
+        {
+            resp.Error = "Account Name is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Account.BankName))
+        {
+            resp.Error = "Bank Name is required.";
             resp.IsSuccessful = false;
             return resp;
         }
@@ -120,7 +157,31 @@ public sealed class MemberService(IThriftAppDbContext thriftAppDbContext) : IMem
             resp.IsSuccessful = false;
             return resp;
         }
+        else if (request.Account.BVN.Length != 11 || !request.Account.BVN.All(char.IsDigit))
+        {
+            resp.Error = "BVN must be 11 digits.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
         return new ServiceResponse<MemberIdResponse> { IsSuccessful = true };
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private bool IsValidPhoneNumber(string phoneNumber)
+    {
+        return Regex.IsMatch(phoneNumber, @"^(070|080|081|090|091)\d{8}$");
     }
 }

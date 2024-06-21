@@ -36,8 +36,29 @@ internal class MemberConfig : IEntityTypeConfiguration<Member>
             c.Property(x => x.Hash);
         });
 
+        builder.OwnsOne(x => x.BankAccount, c =>
+        {
+            c.Property(x => x.AccountNo)
+                .HasColumnName("BankAccount_AccountNo")
+                //.HasMaxLength(10)
+                .IsRequired();
+            c.Property(x => x.AccountName)
+                .HasColumnName("BankAccount_AccountName")
+                //.HasMaxLength(50)
+                .IsRequired();
+            c.Property(x => x.BVN)
+                .HasColumnName("BankAccount_BVN")
+                //.HasMaxLength(11)
+                .IsRequired();
+            c.Property(x => x.BankName)
+                .HasColumnName("BankAccount_BankName")
+                //.HasMaxLength(50)
+                .IsRequired();
+        });
 
-        builder.HasOne(x => x.MemberWallet).WithOne(x => x.Member);
+
+        //builder.HasOne(x => x.MemberWallet)
+        //    .WithOne(x => x.Member);
 
         NpgsqlPropertyBuilderExtensions.UseHiLo(builder.Property(x => x.MemberId), "member_memberid_seq", ThriftAppDbContext.DEFAULT_SCHEMA);
     }
