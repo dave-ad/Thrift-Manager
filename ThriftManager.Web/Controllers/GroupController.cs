@@ -1,4 +1,6 @@
-﻿namespace ThriftManager.Web.Controllers;
+﻿using System;
+
+namespace ThriftManager.Web.Controllers;
 
 public class GroupController : Controller
 {
@@ -12,8 +14,9 @@ public class GroupController : Controller
     }
 
     // GET: GroupController
-    public ActionResult Index()
+    public async Task<IActionResult> Index()
     {
+        ViewData["Message"] = "Group Created Successfully 👍";
         return View();
     }
 
@@ -24,41 +27,39 @@ public class GroupController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateGroup(CreateGroupRequest request)
+    public async Task<IActionResult> CreateGroup(CreateGroupRequest newGroup)
     {
         if (!ModelState.IsValid)
         {
-            return BadRequest(ModelState);
+            return View(nameof(CreateGroup), newGroup);
         }
 
-        // Assuming createdBy is retrieved from the current logged-in user
-        string createdBy = User.Identity.Name; // Replace this with the actual logic to get the logged-in user's name
-        request.CreatedBy = createdBy;
+        //// Assuming createdBy is retrieved from the current logged-in user
+        //string createdBy = User.Identity.Name; // Replace this with the actual logic to get the logged-in user's name
+        //newGroup.CreatedBy = createdBy;
 
-        var serviceResponse = await _groupService.CreateGroup(request);
-
-        if (serviceResponse.IsSuccessful)
+        try
         {
-            return Ok(serviceResponse.Value);
+            ServiceResponse<GroupIdResponse> resp = await _groupService.CreateGroup(newGroup);
+
+            if (resp.IsSuccessful)
+            {
+                TempData["SuccessMessage"] = "Group created successfully.";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                _logger.LogError("Failed to create group: {Message}", resp.TechMessage);
+                ModelState.AddModelError("", "Failed to create group");
+                return View(nameof(CreateGroup), newGroup);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return StatusCode(500, serviceResponse.Error);
+            _logger.LogError(ex, "An exception occurred while creating new group.");
+            ModelState.AddModelError("", "An error occurred while creating new group. Please try again.");
+            return View(nameof(CreateGroup), newGroup);
         }
-        //var newGroup = new CreateGroupRequest
-        //{
-        //    Name = "Group One",
-        //    Title = "The Group One",
-        //    Amount = 100,
-        //    Slots = 10,
-        //    Period = Period.Monthly,
-        //    Tenure = 10,
-        //    DueDay = 3,
-        //};
-
-        //ServiceResponse<GroupIdResponse> resp = await _groupService.CreateGroup(newGroup);
-
-        //return View(resp);
     }
 
     //public async Task<IActionResult> ViewAllGroups()

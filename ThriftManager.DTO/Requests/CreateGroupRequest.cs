@@ -1,12 +1,5 @@
 ﻿namespace ThriftManager.DTO.Requests;
 
-/*
-  public int GroupId { get; private set; }
-   
- 
-    
-    public ContributionTimeline Timeline { get; private set; } = ContributionTimeline.Default();
- */
 public class CreateGroupRequest
 {
     public string Name { get; set; } = default!;
@@ -16,5 +9,5 @@ public class CreateGroupRequest
     public Period Period { get; set; } = default!;
     public int Tenure { get; set; } = default!;
     public int DueDay { get; set; } = default!;
-    public string CreatedBy { get; set; } = default!;
+    public string CreatedBy { get; set; }
 }

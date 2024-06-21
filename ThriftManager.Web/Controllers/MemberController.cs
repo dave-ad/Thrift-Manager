@@ -10,8 +10,9 @@ public class MemberController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
+        ViewData["Message"] = "Member Added Successfully 👍";
         return View();
     }
 

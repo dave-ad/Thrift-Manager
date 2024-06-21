@@ -6,7 +6,7 @@ public class GroupResponse : IServiceResponse
     public string Name { get; set; }
     public string Title { get; set; }
     public decimal Amount { get; set; }
-    public int CreatedBy { get; set; }
+    public string CreatedBy { get; set; }
     public DateTime CreatedOn { get; set; }
     public DateTime? UpdatedOn { get; set; }
 }

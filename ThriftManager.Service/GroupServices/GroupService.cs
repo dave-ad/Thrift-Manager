@@ -8,10 +8,27 @@ public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGrou
     {
         var resp = new ServiceResponse<GroupIdResponse>();
 
+        var validationResponse = ValidateRequest(request);
+        if (!validationResponse.IsSuccessful)
+        {
+            return validationResponse;
+        }
+
+        var existingGroup = _thriftAppDbContext.Groups
+            .FirstOrDefault(a => a.Name == request.Name);
+
+        if (existingGroup != null)
+        {
+            resp.Error = $"Duplicate Error. {request.Name} already exists.";
+            resp.TechMessage = "Duplicate Error. A member with the provided details already exists.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
         var contributionTimeline = ContributionTimeline.Create(request.Slots
             , request.Period, request.Tenure, request.DueDay);
 
-        var group = Group.Create(request.Name, request.Title, contributionTimeline, request.Amount, request.CreatedBy);
+        var group = Domain.Entities.Group.Create(request.Name, request.Title, contributionTimeline, request.Amount, request.CreatedBy);
 
         try
         {
@@ -37,6 +54,69 @@ public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGrou
             resp.IsSuccessful = false;
             return resp;
         }
+    }
+
+    private ServiceResponse<GroupIdResponse> ValidateRequest(CreateGroupRequest request)
+    {
+        var resp = new ServiceResponse<GroupIdResponse>();
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+        {
+            resp.Error = "Group Name is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Title))
+        {
+            resp.Error = "Group Title is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.Slots <= 0)
+        {
+            resp.Error = "Slots must be greater than 0.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.Period <= 0)
+        {
+            resp.Error = "Period must be greater than 0.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.Tenure <= 0)
+        {
+            resp.Error = "Tenure must be greater than 0.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.DueDay <= 0 || request.DueDay > 31)
+        {
+            resp.Error = "Due Day must be between 1 and 31.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (request.Amount <= 0)
+        {
+            resp.Error = "Amount must be greater than 0.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        if (string.IsNullOrWhiteSpace(request.CreatedBy))
+        {
+            resp.Error = "CreatedBy is required.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
+
+        return new ServiceResponse<GroupIdResponse> { IsSuccessful = true };
     }
 
     //public async Task<ServiceResponse<IEnumerable<GroupResponse>>> ViewAllGroups()
@@ -78,55 +158,57 @@ public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGrou
     //    }
     //}
 
-    //public async Task<ServiceResponse<GroupIdResponse>> JoinGroup(int memberId, int groupId)
-    //{
-    //    var resp = new ServiceResponse<GroupIdResponse>();
+    public async Task<ServiceResponse<GroupIdResponse>> JoinGroup(int memberId, int groupId)
+    {
+        var resp = new ServiceResponse<GroupIdResponse>();
 
-    //    var group = await _thriftAppDbContext.Groups
-    //        .Include(x => x.GroupMembers)
-    //        .FirstOrDefaultAsync(x => x.GroupId == groupId);
+        var group = await _thriftAppDbContext.Groups
+            .Include(x => x.Contributions)
+            .ThenInclude(cs => cs.ContributingMembers)
+            .FirstOrDefaultAsync(x => x.GroupId == groupId);
 
-    //    if (group == null)
-    //    {
-    //        resp.Error = "Group not found";
-    //        resp.IsSuccessful = false;
-    //        return resp;
-    //    }
-
-    //    if (group.GroupMembers.Count >= group.Timeline.Slots)
-    //    {
-    //        resp.Error = "The group is already full.";
-    //        resp.IsSuccessful = false;
-    //        return resp;
-    //    }
-
-    //    var member = await _thriftAppDbContext.Members.FindAsync(memberId);
-    //    if (member == null)
-    //    {
-    //        resp.Error = "Member not found";
-    //        resp.IsSuccessful = false;
-    //        return resp;
-    //    }
+        if (group == null)
+        {
+            resp.Error = "Group not found";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
 
-    //    try
-    //    {
-    //        group.AddMember(member);
-    //        await _thriftAppDbContext.SaveChangesAsync();
+        if (group.GroupMembers.Count >= group.Timeline.Slots)
+        {
+            resp.Error = "The group is already full.";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
-    //        resp.Value = new GroupIdResponse { GroupId = group.GroupId };
-    //        resp.IsSuccessful = true;
-    //        return resp;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        resp.Error = "An error occurred while joining the group";
-    //        resp.TechMessage = ex.GetBaseException().Message;
-    //        resp.IsSuccessful = false;
-    //        return resp;
+        var member = await _thriftAppDbContext.Members.FindAsync(memberId);
+        if (member == null)
+        {
+            resp.Error = "Member not found";
+            resp.IsSuccessful = false;
+            return resp;
+        }
 
-    //    }
-    //    //return resp;
-    //}
+
+        try
+        {
+            group.AddMember(member);
+            await _thriftAppDbContext.SaveChangesAsync();
+
+            resp.Value = new GroupIdResponse { GroupId = group.GroupId };
+            resp.IsSuccessful = true;
+            return resp;
+        }
+        catch (Exception ex)
+        {
+            resp.Error = "An error occurred while joining the group";
+            resp.TechMessage = ex.GetBaseException().Message;
+            resp.IsSuccessful = false;
+            return resp;
+
+        }
+        //return resp;
+    }
 
 }

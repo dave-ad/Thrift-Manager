@@ -6,6 +6,6 @@ public enum Period
     Daily = 1,
     Weekly,
     Fortnightly,
-    Monthly,
+    Monthly = 4,
     Annually
 }
