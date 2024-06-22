@@ -45,9 +45,6 @@ public partial class Contribution : IAggregateRoot
         return contMember;
     }
 
-    //Suspend Member
-    //Swap Member
-
     public void MakeContribution(int memberId, decimal amount)
     {
         var thisMember =
@@ -62,5 +59,7 @@ public partial class Contribution : IAggregateRoot
         ContributionWallet.Credit(memberId, amount);
     }
 
+    //Suspend Member
+    //Swap Member
     //Payout
 }

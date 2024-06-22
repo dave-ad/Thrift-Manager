@@ -1,6 +1,4 @@
-﻿
-
-namespace ThriftManager.Domain.Entities;
+﻿namespace ThriftManager.Domain.Entities;
 
 public partial class Contribution
 {
@@ -19,8 +17,5 @@ public partial class Contribution
     public ContributionWallet ContributionWallet { get; private set; } = default!;
     public IReadOnlyCollection<ContributingMember> ContributingMembers => _contributingMembers;
 
-
-
     private readonly HashSet<ContributingMember> _contributingMembers = new HashSet<ContributingMember>();
-
 }

@@ -12,5 +12,6 @@ public partial class Group : Entity
     public DateTime CreatedOn { get; private set; }
     public DateTime? UpdatedOn { get; private set; }
 
-    public HashSet<Contribution> Contributions { get; private set; } = new HashSet<Contribution>();
+    public HashSet<Contribution> Contribution { get; private set; } = new HashSet<Contribution>();
+    public ICollection<GroupMember> Contributions { get; private set; } = new HashSet<GroupMember>();
 }

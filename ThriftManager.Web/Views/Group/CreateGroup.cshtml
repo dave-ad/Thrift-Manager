@@ -7,6 +7,17 @@
     ViewData["Title"] = "Create New Group";
 }
 
+<p>
+    <a asp-action="Index" class="btn btn-primary">View Groups</a>
+</p>
+
+@if (ViewBag.GroupJoinedMessage != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.GroupCreatedMessage
+    </div>
+}
+
 <form asp-action="CreateGroup" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 

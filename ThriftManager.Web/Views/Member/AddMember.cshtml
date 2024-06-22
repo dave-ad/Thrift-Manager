@@ -6,6 +6,13 @@
     ViewData["Title"] = "Create Member";
 }
 
+@if (ViewBag.GroupJoinedMessage != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.MemberCreatedMessage
+    </div>
+}
+
 <form asp-action="AddMember" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 

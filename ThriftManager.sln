@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThriftManager.Service", "Th
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThriftManager.Utils", "ThriftManager.Utils\ThriftManager.Utils.csproj", "{D9CDB171-8B3A-4BD1-BFB0-B56E65D51C72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThriftManager.DTO", "ThriftManager.DTO\ThriftManager.DTO.csproj", "{BB466641-DA15-4CA3-B60E-35F2BFE69756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThriftManager.DTO", "ThriftManager.DTO\ThriftManager.DTO.csproj", "{BB466641-DA15-4CA3-B60E-35F2BFE69756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThriftManager.Web", "ThriftManager.Web\ThriftManager.Web.csproj", "{FE78C745-107B-48CF-80FA-3A051DA64EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThriftManager.Web", "ThriftManager.Web\ThriftManager.Web.csproj", "{FE78C745-107B-48CF-80FA-3A051DA64EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

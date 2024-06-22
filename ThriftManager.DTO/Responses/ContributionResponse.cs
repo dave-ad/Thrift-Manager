@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ThriftManager.DTO.Responses;
 
-namespace ThriftManager.DTO.Responses
+public class ContributionResponse : IServiceResponse
 {
-    internal class ContributionResponse
-    {
-    }
+    public long ContributionId { get; set; }
+    public string Title { get; set; }
+    public decimal Amount { get; set; }
+    public DateOnly StartDate { get; set; }
+    public DateOnly EndDate { get; set; }
+    //public int AdminId { get; set; }
+    public SessionStatus Status { get; set; }
+
+    //public int GroupId { get; set; }
+    //public List<ContributionResponse> Contributions { get; set; } = new List<ContributionResponse>();
 }
