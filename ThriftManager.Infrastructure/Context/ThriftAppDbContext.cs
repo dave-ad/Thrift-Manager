@@ -72,6 +72,20 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
             });
 
         });
+
+        // Configure relationships and table names as necessary
+        modelBuilder.Entity<GroupMember>()
+            .HasKey(gm => new { gm.GroupId, gm.MemberId });
+
+        modelBuilder.Entity<GroupMember>()
+            .HasOne(gm => gm.Group)
+            .WithMany(g => g.Contributions)
+            .HasForeignKey(gm => gm.GroupId);
+
+        modelBuilder.Entity<GroupMember>()
+            .HasOne(gm => gm.Member)
+            .WithMany(m => m.Groups)
+            .HasForeignKey(gm => gm.MemberId);
     }
 
     public DbSet<Member> Members { get; set; }
@@ -82,4 +96,5 @@ internal sealed class ThriftAppDbContext : DbContext, IThriftAppDbContext
     public DbSet<ContributingMember> ContributingMembers { get; set; }
     public DbSet<ContributionWallet> ContributionWallets { get; set; }
     public DbSet<ContributionWalletTransaction> ContributionWalletTransactions { get; set; }
+    public DbSet<GroupMember> GroupMembers { get; set; }
 }

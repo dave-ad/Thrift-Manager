@@ -1,4 +1,4 @@
-﻿@model ErrorViewModel
+﻿@* @model ErrorViewModel
 @{
     ViewData["Title"] = "Error";
 }
@@ -23,3 +23,41 @@
     For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
     and restarting the app.
 </p>
+ *@
+
+@model ThriftManager.Web.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h2>Error</h2>
+@if (Model != null)
+{
+    <p>@Model.Message</p>
+}
+@if (Model != null && Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID: 
+            <code>@Model.RequestId</code>
+        </strong>
+    </p>
+}
+
+@* @model Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary
+
+@{
+    ViewData["Title"] = "Error";
+    var exception = ViewData["Exception"] as Exception;
+    var statusCode = (int)ViewData["StatusCode"];
+}
+
+<h1>Error @statusCode</h1>
+<p>An error occurred while processing your request.</p>
+
+@if (exception != null)
+{
+    <p>@exception.Message</p>
+    <pre>@exception.StackTrace</pre>
+} *@

@@ -119,96 +119,106 @@ public sealed class GroupService(IThriftAppDbContext thriftAppDbContext) : IGrou
         return new ServiceResponse<GroupIdResponse> { IsSuccessful = true };
     }
 
-    //public async Task<ServiceResponse<IEnumerable<GroupResponse>>> ViewAllGroups()
+    public async Task<ListResponse<GroupResponse>> GetAvailableGroups()
+    {
+        var resp = new ListResponse<GroupResponse>();
+
+        try
+        {
+            var groups = await _thriftAppDbContext.Groups
+                .Include(g => g.Contributions)
+                .Select(g => new GroupResponse
+                {
+                    GroupId = g.GroupId,
+                    Name = g.Name,
+                    Title = g.Title,
+                    Amount = g.Amount,
+                    CreatedBy = g.CreatedBy,
+                    CreatedOn = g.CreatedOn,
+                    UpdatedOn = g.UpdatedOn
+                }).ToListAsync();
+
+            resp.Items = groups;
+            resp.IsSuccessful = true;
+
+            if (groups == null || !groups.Any())
+            {
+                resp.Error = "No groups found";
+                resp.TechMessage = "No groups were found in the database";
+                resp.IsSuccessful = false;
+                return resp;
+            }
+        }
+        catch (Exception ex)
+        {
+            resp.Error = "An error occurred while retrieving the groups.";
+            resp.TechMessage = ex.GetBaseException().Message;
+            resp.IsSuccessful = false;
+        }
+
+        return resp;
+    }
+
+    //public async Task<ServiceResponse<GroupIdResponse>> JoinGroup(JoinGroupRequest request)
     //{
-    //    var resp = new ServiceResponse<IEnumerable<GroupResponse>>();
+    //    var resp = new ServiceResponse<GroupIdResponse>();
 
     //    try
     //    {
-    //        var groups = await _thriftAppDbContext.Groups.ToListAsync();
+    //        var group = await _thriftAppDbContext.Groups
+    //           .Include(g => g.Contributions)
+    //           .FirstOrDefaultAsync(g => g.GroupId == request.GroupId);
 
-    //        if (groups == null || !groups.Any())
+    //        if (group == null)
     //        {
-    //            resp.Error = "No groups found";
+    //            resp.Error = "Group not found";
     //            resp.IsSuccessful = false;
     //            return resp;
     //        }
 
-    //        var groupResponses = groups.Select(g => new GroupResponse
-    //        {
-    //            GroupId = g.GroupId,
-    //            Name = g.Name,
-    //            Title = g.Title,
-    //            Amount = g.Amount,
-    //            CreatedBy = g.CreatedBy,
-    //            CreatedOn = g.CreatedOn,
-    //            UpdatedOn = g.UpdatedOn
-    //        }).ToList();
 
-    //        resp.Value = groupResponses;
-    //        resp.IsSuccessful = true;
-    //        return resp;
+    //        var currentSlotCount = group.Contributions.Count();
+    //        if (currentSlotCount >= group.Timeline.Slots)
+    //        {
+    //            resp.Error = "No available slots in the current group.";
+    //            resp.IsSuccessful = false;
+    //            return resp;
+    //        }
+
+    //        var member = await _thriftAppDbContext.Members.FindAsync(request.MemberId);
+    //        if (member == null)
+    //        {
+    //            resp.Error = "Member not found";
+    //            resp.IsSuccessful = false;
+    //            return resp;
+    //        }
+
+    //        var newGroupMember = GroupMember.Create(request.GroupId, request.MemberId, currentSlotCount + 1);
+    //        group.Contributions.Add(newGroupMember);
+
+    //        try
+    //        {
+    //            await _thriftAppDbContext.SaveChangesAsync();
+    //            resp.Value = new GroupIdResponse { GroupId = group.GroupId };
+    //            resp.IsSuccessful = true;
+    //            return resp;
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            resp.Error = "An error occurred while joining the group";
+    //            resp.TechMessage = ex.GetBaseException().Message;
+    //            resp.IsSuccessful = false;
+    //            return resp;
+    //        }
     //    }
     //    catch (Exception ex)
     //    {
-    //        resp.Error = "Error occurred";
+    //        resp.Error = "An error occurred while retrieving the group";
     //        resp.TechMessage = ex.GetBaseException().Message;
     //        resp.IsSuccessful = false;
     //        return resp;
     //    }
+    //    //return resp;
     //}
-
-    public async Task<ServiceResponse<GroupIdResponse>> JoinGroup(int memberId, int groupId)
-    {
-        var resp = new ServiceResponse<GroupIdResponse>();
-
-        var group = await _thriftAppDbContext.Groups
-            .Include(x => x.Contributions)
-            .ThenInclude(cs => cs.ContributingMembers)
-            .FirstOrDefaultAsync(x => x.GroupId == groupId);
-
-        if (group == null)
-        {
-            resp.Error = "Group not found";
-            resp.IsSuccessful = false;
-            return resp;
-        }
-
-
-        if (group.GroupMembers.Count >= group.Timeline.Slots)
-        {
-            resp.Error = "The group is already full.";
-            resp.IsSuccessful = false;
-            return resp;
-        }
-
-        var member = await _thriftAppDbContext.Members.FindAsync(memberId);
-        if (member == null)
-        {
-            resp.Error = "Member not found";
-            resp.IsSuccessful = false;
-            return resp;
-        }
-
-
-        try
-        {
-            group.AddMember(member);
-            await _thriftAppDbContext.SaveChangesAsync();
-
-            resp.Value = new GroupIdResponse { GroupId = group.GroupId };
-            resp.IsSuccessful = true;
-            return resp;
-        }
-        catch (Exception ex)
-        {
-            resp.Error = "An error occurred while joining the group";
-            resp.TechMessage = ex.GetBaseException().Message;
-            resp.IsSuccessful = false;
-            return resp;
-
-        }
-        //return resp;
-    }
 
 }

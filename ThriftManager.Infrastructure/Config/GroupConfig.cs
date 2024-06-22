@@ -14,6 +14,10 @@ internal class GroupConfig : IEntityTypeConfiguration<Group>
             c.Property(x => x.DueDay).HasMaxLength(11);
         });
 
+        builder.HasMany(g => g.Contributions)
+               .WithOne()
+               .HasForeignKey(gm => gm.GroupId);
+
         NpgsqlPropertyBuilderExtensions.UseHiLo
             (builder.Property(x => x.GroupId),
             "group_groupid_seq",

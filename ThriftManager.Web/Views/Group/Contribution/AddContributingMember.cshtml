@@ -1,0 +1,23 @@
+﻿@model ThriftManager.Web.Models.JoinContributionViewModel
+
+@{
+    ViewData["Title"] = "Join Contribution";
+}
+
+<h2>Join Contribution</h2>
+
+<form asp-action="AddContributingMember" method="post">
+    <div class="form-group">
+        <label for="slots">Number of Slots:</label>
+        <input type="number" id="slots" name="Slots" class="form-control" value="1" min="1" max="10" required>
+    </div>
+    <input type="hidden" asp-for="ContributionId" value="@Model.ContributionId" />
+    <input type="hidden" asp-for="MemberId" value="@Model.MemberId" />
+    <button type="submit" class="btn btn-primary">Join Contribution</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

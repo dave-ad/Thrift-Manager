@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ThriftManager.Web.Controllers;
+﻿namespace ThriftManager.Web.Controllers;
 
 public class GroupController : Controller
 {
@@ -14,15 +12,33 @@ public class GroupController : Controller
     }
 
     // GET: GroupController
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
-        ViewData["Message"] = "Group Created Successfully 👍";
-        return View();
+        //ViewData["Message"] = "Group Created Successfully 👍";
+        var resp = await _groupService.GetAvailableGroups();
+        if (!resp.IsSuccessful)
+        {
+            var errorViewModel = new ErrorViewModel
+            {
+                Message = resp.Error,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View("Error", errorViewModel);
+        }
+
+        var viewModel = new GroupListViewModel
+        {
+            Groups = resp.Items
+        };
+
+        return View(viewModel);
     }
 
     [HttpGet]
     public IActionResult CreateGroup()
     {
+        ViewBag.GroupCreatedMessage = "Group Joined Successfully 👍";
         return View();
     }
 
@@ -62,18 +78,49 @@ public class GroupController : Controller
         }
     }
 
-    //public async Task<IActionResult> ViewAllGroups()
+    //[HttpPost]
+    //public async Task<IActionResult> JoinGroup(JoinGroupRequest request)
     //{
-    //    var resp = await _groupService.ViewAllGroups();
-
+    //    var resp = await _groupService.JoinGroup(request);
     //    if (!resp.IsSuccessful)
     //    {
-    //        return NotFound(resp.Error);
+    //        ModelState.AddModelError("", resp.Error);
+    //        var viewModel = new GroupListViewModel
+    //        {
+    //            Groups = (await _groupService.GetAvailableGroups()).Items,
+    //            JoinGroupRequest = request
+    //        };
+    //        return View("Index", viewModel);
+
     //    }
 
-    //    return Ok(resp.Value);
-
+    //    TempData["SuccessMessage"] = "Successfully joined the group!";
+    //    return RedirectToAction("Index");
     //}
+
+    [HttpGet]
+    public async Task<IActionResult> GetAvailableGroups()
+    {
+        var resp = await _groupService.GetAvailableGroups();
+
+        if (!resp.IsSuccessful)
+        {
+            return BadRequest(resp.Error);
+        }
+
+        return Ok(resp.Items);
+    }
+
+    [HttpGet("Error")]
+    public IActionResult Error(string message)
+    {
+        var errorViewModel = new ErrorViewModel
+        {
+            Message = message,
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+        };
+        return View(errorViewModel);
+    }
 
     public IActionResult Privacy()
     {

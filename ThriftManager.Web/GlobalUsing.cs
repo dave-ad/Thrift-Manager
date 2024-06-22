@@ -8,3 +8,4 @@ global using ThriftManager.Utils.Enums;
 global using ThriftManager.Web.Models;
 global using System.ComponentModel.DataAnnotations;
 global using ThriftManager.Service.GroupServices;
+global using ThriftManager.Service.ContributionServices;

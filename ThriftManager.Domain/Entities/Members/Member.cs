@@ -14,4 +14,6 @@ public partial class Member : Entity
 
     public virtual MemberWallet MemberWallet { get; private set; } = default!;
     //public virtual MemberAddress MemberAddress { get; private set; } = default!;
+
+    public ICollection<GroupMember> Groups { get; private set; } = new HashSet<GroupMember>();
 }

@@ -19,11 +19,12 @@ public class MemberController : Controller
     [HttpGet]
     public async Task<IActionResult> AddMember()
     {
+        ViewBag.MemberCreatedMessage = "Group Joined Successfully 👍";
         return View();
     }
 
     [HttpPost]
-    //[ValidateAntiForgeryToken]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddMember(CreateMemberRequest newMember)
     {
         if (!ModelState.IsValid)
@@ -44,7 +45,6 @@ public class MemberController : Controller
             {
                 _logger.LogError("Failed to create member: {Message}", resp.TechMessage);
                 ModelState.AddModelError("", "Failed to create member");
-                //return View(resp);
                 return View(nameof(AddMember), newMember);
             }
         }
@@ -55,33 +55,6 @@ public class MemberController : Controller
             return View(nameof(AddMember), newMember);
         }
     }
-
-    //public async Task<IActionResult> AddMember()
-    //{
-    //    var account = new MemberBankAccount
-    //    {
-    //        AccountName = "James Joseph",
-    //        AccountNumber = "1234567801",
-    //        BankName = "Bank A",
-    //        BVN = "55563214598"
-    //    };
-    //    var newMember = new CreateMemberRequest
-    //    {
-    //        Account = account,
-    //        DateOfBirth = new DateOnly(1990, 02, 02),
-    //        Email = "somebody@yahoo.com",
-    //        FirstName = "Somebody",
-    //        Gender = Gender.Male,
-    //        LastName = "Joseph",
-    //        MobileNumber = "08056423145",
-    //        NIN = "0213653241",
-    //        OtherNames = "James"
-    //    };
-
-    //    ServiceResponse<MemberIdResponse> resp = await _memberService.CreateMember(newMember);
-    //    return View(resp);
-    //}
-
 
     public IActionResult Privacy()
     {
